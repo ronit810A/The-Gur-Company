@@ -1,0 +1,59 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+:root{
+  --color-white:#ffffff;
+  --color-black:#000000;
+  --color-cream:#FFF4DF;
+  --color-brown:#7C3C1A;
+  --color-heading:#AE683C;
+  --color-gray:#686868;
+  --color-primary:#F1F1F199;
+  --header-bg:#FFFFFF0D;
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Inter", sans-serif;
+  background: #ffffff;
+}
+
+h1,
+h2 {
+  font-family: "Fredoka", sans-serif;
+}
+button{
+  border: none;
+  outline: none;
+  background: none;
+  font-family: "Inter", sans-serif;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style: none;
+}
+ul{
+  margin: 0;
+  padding: 0;
+}
+
+
+
+
+.home01{
+  background-color: var(--color-brown);
+  padding-top: 183px;
+  height: 900px;
+}
+.home02{
+  background-color: var(--color-cream);
+  height: 900px;
+}
