@@ -1,12 +1,12 @@
 
 import "../Css/home.css"
 
-import BanerSection from "../Component/HomePageData/baner"
+import BannerSection from "../Component/HomePageData/banner"
 
 function Home() {
     return (
         <>
-            <BanerSection />
+            <BannerSection />
         </>
     );
 }
