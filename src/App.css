@@ -19,6 +19,11 @@
   box-sizing: border-box;
 }
 
+.container{
+  width: 1440px !important;
+  max-width: 1440px !important;
+}
+
 body {
   font-family: "Inter", sans-serif;
   background: #ffffff;
