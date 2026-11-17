@@ -5,6 +5,9 @@ import SliderModule from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
+
+import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+
 import {
     QualityArow,
     Curatedbg01,
@@ -186,7 +189,7 @@ function CuratedSection() {
                         className="curated-prev"
                         onClick={() => sliderRef.current.slickPrev()}
                     >
-                        ‹
+                        <IoIosArrowBack />
                     </button>
 
                     <span className="curated-number">
@@ -197,7 +200,7 @@ function CuratedSection() {
                         className="curated-next"
                         onClick={() => sliderRef.current.slickNext()}
                     >
-                        ›
+                       <IoIosArrowForward />
                     </button>
 
                 </div>
