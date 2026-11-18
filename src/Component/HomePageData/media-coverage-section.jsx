@@ -1,5 +1,5 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import SliderModule from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -14,6 +14,13 @@ import {MediaCoverage01,
 const Slider = SliderModule.default || SliderModule;
 
 function MediaCoverageSlider() {
+    const [viewportWidth, setViewportWidth] = useState(() => window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const logos = [
         MediaCoverage01,
@@ -33,27 +40,13 @@ function MediaCoverageSlider() {
         arrows: false,
         infinite: true,
         speed: 5000,
-        slidesToShow: 5,
+        slidesToShow: viewportWidth <= 576 ? 2 : viewportWidth <= 992 ? 3 : 5,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 0,
         cssEase: "linear",
         pauseOnHover: false,
-        swipe: false,
-        responsive: [
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3
-                }
-            },
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 2
-                }
-            }
-        ]
+        swipe: false
     };
 
     return (

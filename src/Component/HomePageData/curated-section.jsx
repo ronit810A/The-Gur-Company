@@ -1,5 +1,5 @@
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SliderModule from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -21,6 +21,13 @@ function CuratedSection() {
 
     const sliderRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [viewportWidth, setViewportWidth] = useState(() => window.innerWidth);
+
+    useEffect(() => {
+        const handleResize = () => setViewportWidth(window.innerWidth);
+        window.addEventListener("resize", handleResize);
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const slides = [
         {
@@ -65,57 +72,31 @@ function CuratedSection() {
         dots: false,
         infinite: true,
         speed: 600,
-        slidesToShow: 3,
+        slidesToShow: viewportWidth <= 768 ? 1 : 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false,
 
         centerMode: true,
-        centerPadding: "300px",
+        centerPadding:
+            viewportWidth <= 576
+                ? "45px"
+                : viewportWidth <= 768
+                    ? "100px"
+                    : viewportWidth <= 992
+                        ? "80px"
+                        : viewportWidth <= 1200
+                            ? "130px"
+                            : "300px",
         focusOnSelect: true,
 
         pauseOnHover: false,
         pauseOnFocus: false,
 
-        beforeChange: (oldIndex, newIndex) => {
+        beforeChange: (_oldIndex, newIndex) => {
             setCurrentSlide(newIndex);
-        },
-
-        responsive: [
-            {
-                breakpoint: 1200,
-                settings: {
-                    slidesToShow: 3,
-                    centerMode: true,
-                    centerPadding: "130px"
-                }
-            },
-            {
-                breakpoint: 992,
-                settings: {
-                    slidesToShow: 3,
-                    centerMode: true,
-                    centerPadding: "80px"
-                }
-            },
-            {
-                breakpoint: 768,
-                settings: {
-                    slidesToShow: 1,
-                    centerMode: true,
-                    centerPadding: "100px"
-                }
-            },
-            {
-                breakpoint: 576,
-                settings: {
-                    slidesToShow: 1,
-                    centerMode: true,
-                    centerPadding: "45px"
-                }
-            }
-        ]
+        }
     };
 
     return (

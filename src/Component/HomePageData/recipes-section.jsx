@@ -69,7 +69,7 @@ function RecipesSection() {
 
                     {recipes.map((item, index) => (
 
-                        <div className="col-lg-3 col-md-6 col-6" key={index}>
+                        <div className="col-lg-3 col-md-6 col-12" key={index}>
 
                             <div className="recipes-card">
 

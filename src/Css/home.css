@@ -119,21 +119,6 @@ ul {
   background-position: right bottom;
 }
 
-.baner-section::before {
-  content: "";
-  position: absolute;
-  right: 517px;
-  bottom: 252px;
-  width: 806px;
-  height: 911px;
-  background-image: url("/src/assets/Design.png");
-  background-size: contain;
-  background-repeat: no-repeat;
-  background-position: right bottom;
-}
-
-
-
 .baner-content {
   color: var(--heading-color);
 }
@@ -399,10 +384,10 @@ button.curated-btn {
 /* Main Slider */
 
 .curated-slider {
-    width: 100%;
-    overflow: hidden;
-    padding-top: 60px;
-    padding-bottom: 53px;
+  width: 100%;
+  overflow: hidden;
+  padding-top: 60px;
+  padding-bottom: 53px;
 }
 
 .curated-slider .slick-list {
@@ -531,29 +516,29 @@ button.curated-btn {
 }
 
 .curated-controls button {
-    width: 80px;
-    height: 80px;
-    border: none;
-    border-radius: 50%;
-    background: #f1f1f1;
-    color: #b96d3c;
-    font-size: 30px;
-    cursor: pointer;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 50%;
+  background: #f1f1f1;
+  color: #b96d3c;
+  font-size: 30px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .curated-controls .curated-number {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    background: #b36a3e;
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  background: #b36a3e;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
 }
 
 /* Responsive */
@@ -965,8 +950,9 @@ button.curated-btn {
     width: 100%;
     min-height: 1028px;
     padding: 157px 0;
-    background-size: contain;
+    background-size: cover;
 }
+
 /* Heading */
 
 .testimonial-heading {
@@ -981,11 +967,11 @@ button.curated-btn {
 /* Cards */
 
 .testimonial-slider .slick-slide {
-    padding: 60px 10px 70px;
+  padding: 60px 10px 70px;
 }
 
 .testimonial-slider .slick-list {
-    margin: 0 -10px;
+  margin: 0 -10px;
 }
 
 .testimonial-cards {
@@ -993,20 +979,20 @@ button.curated-btn {
 }
 
 .testimonial-card {
-    min-height: 293px;
-    background: #fff;
-    border-radius: 28px;
-    padding: 38px 9px 38px 22px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
+  min-height: 293px;
+  background: #fff;
+  border-radius: 28px;
+  padding: 38px 9px 38px 22px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
 }
 
 .testimonial-image {
-    width: 137px;
-    height: 149px;
-    flex-shrink: 0;
-    overflow: hidden;
+  width: 137px;
+  height: 149px;
+  flex-shrink: 0;
+  overflow: hidden;
 }
 
 .testimonial-image img {
@@ -1031,7 +1017,7 @@ button.curated-btn {
 .testimonial-content h5 {
   font-size: 24px;
   font-weight: 500;
-  color:var(--color-black);
+  color: var(--color-black);
 }
 
 .testimonial-content p {
@@ -1044,7 +1030,7 @@ button.curated-btn {
 .testimonial-content h6 {
   font-size: 14px;
   font-weight: 600;
-  color:var(--color-black);
+  color: var(--color-black);
   margin: 0;
 }
 
@@ -1058,21 +1044,22 @@ button.curated-btn {
   margin-top: 38px;
 }
 
-.testimonial-arrow, .testimonial-number {
-    width: 80px;
-    height: 80px;
-    border: none;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+.testimonial-arrow,
+.testimonial-number {
+  width: 80px;
+  height: 80px;
+  border: none;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .testimonial-arrow {
-    background: #fff;
-    color: #b2693e;
-    font-size: 30px;
-    transition: 0.3s ease;
+  background: #fff;
+  color: #b2693e;
+  font-size: 30px;
+  transition: 0.3s ease;
 }
 
 .testimonial-arrow:hover {
@@ -1142,52 +1129,1113 @@ button.curated-btn {
 
 
 .media-coverage-section {
-    width: 100%;
-    padding: 30px 0;
-    overflow: hidden;
-    background: #fff;
+  width: 100%;
+  padding: 30px 0;
+  overflow: hidden;
+  background: #fff;
 }
 
 .media-coverage-section .media-slide {
-    padding: 0 20px;
+  padding: 0 20px;
 }
 
 .media-coverage-section .media-logo {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 65px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 65px;
 }
 
 .media-coverage-section .media-logo img {
-    display: block;
-    width: 100%;
-    max-width: 220px;
-    height: 60px;
-    object-fit: contain;
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  height: 60px;
+  object-fit: contain;
 }
 
 /* Remove default slick spacing */
 .media-coverage-section .slick-track {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .media-coverage-section .slick-slide {
-    height: auto;
+  height: auto;
 }
 
 @media (max-width: 576px) {
-    .media-coverage-section {
-        padding: 20px 0;
-    }
+  .media-coverage-section {
+    padding: 20px 0;
+  }
 
-    .media-coverage-section .media-slide {
-        padding: 0 10px;
-    }
+  .media-coverage-section .media-slide {
+    padding: 0 10px;
+  }
 
-    .media-coverage-section .media-logo img {
-        max-width: 160px;
-        height: 50px;
-    }
+  .media-coverage-section .media-logo img {
+    max-width: 160px;
+    height: 50px;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* =====================================================================================
+=======================================================================================
+                            \\\---Responsive---///
+=======================================================================================
+======================================================================================== */
+
+@media (max-width: 1537px) {
+  .container {
+    max-width: 1320px !important;
+    width: 100% !important;
+  }
+
+  .banner-img-1 {
+    width: 100%;
+    top: -26px;
+    right: 28px;
+  }
+
+  .heading h6 {
+    font-size: 20px;
+  }
+
+  .heading h1 {
+    font-size: 120px;
+  }
+
+  .heading p {
+    font-size: 16px;
+  }
+
+  .baner-btn button {
+    padding: 17px 31px 19px 31px;
+    font-size: 20px;
+  }
+
+  .baner-btn img {
+    width: 55px;
+  }
+
+  .baner-box h6 {
+    font-size: 20px;
+  }
+
+  .baner-card {
+    width: 348px;
+    height: 206px;
+  }
+
+  .baner-card p {
+    font-size: 16px;
+  }
+
+  .baner-card button {
+    font-size: 16px;
+  }
+
+  .baner-card img {
+    width: 150px;
+  }
+
+  .baner-section {
+    padding: 214px 71px 140px 50px;
+  }
+
+  .baner-section::after {
+    right: 70px;
+    bottom: 59px;
+    width: 757px;
+  }
+
+  .heading h2 {
+    font-size: 70px;
+  }
+
+  .quality-btn {
+    padding: 17px 41px 19px;
+    font-size: 20px;
+  }
+
+  .quality-top-content img {
+    height: 55px;
+  }
+
+  .quality-img img {
+    width: 510px;
+  }
+
+  .quality-divider {
+    height: 410px;
+  }
+
+  .quality-feature-icon {
+    padding: 15px;
+    font-size: 25px;
+  }
+
+  .quality-feature-item {
+    gap: 20px;
+  }
+
+  .quality-content {
+    padding-left: 10px;
+  }
+
+  .quality-feature-info h5 {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .quality-features {
+    gap: 10px;
+  }
+
+  .quality-section {
+    padding: 150px 0;
+  }
+
+  .curater-card {
+    width: 300px;
+    height: 350px;
+    border-radius: 30px;
+  }
+
+  .curater-card-01::after {
+    top: 40px;
+    left: 20px;
+    width: 258px;
+    height: 200px;
+  }
+
+  .curater-card-01::before {
+    top: 100px;
+    left: 95px;
+    width: 110px;
+    height: 103px;
+  }
+
+  .curater-card-02::after {
+    top: 40px;
+    left: 20px;
+    width: 258px;
+    height: 200px;
+  }
+
+  .curater-card-02::before {
+    top: 100px;
+    left: 95px;
+    width: 110px;
+    height: 103px;
+  }
+
+  .curater-card-03::after {
+    top: 40px;
+    left: 55px;
+    width: 200px;
+    height: 170px;
+  }
+
+  .curater-card-03::before {
+    top: 50px;
+    left: 116px;
+    width: 57px;
+    height: 143px;
+  }
+
+  .curater-card-text {
+    bottom: 18px;
+    width: 264px;
+    height: 101px;
+    left: 20px;
+    padding: 20px;
+  }
+
+  .curater-card-text h6 {
+    font-size: 16px !important;
+  }
+
+  .curater-card-text p {
+    font-size: 14px !important;
+  }
+
+  .curater-heart {
+    font-size: 35px;
+  }
+
+  .curated-controls button {
+    width: 60px;
+    height: 60px;
+  }
+
+  .curated-controls .curated-number {
+    width: 60px;
+    height: 60px;
+    font-size: 22px;
+  }
+
+  section.curated-section {
+    padding-top: 100px;
+  }
+
+  .philosophy-section {
+    min-height: 1000px;
+  }
+
+  .philosophy-image {
+    height: 500px;
+  }
+
+  .recipes-section {
+    padding: 100px 0;
+  }
+
+  .recipes-heading h2 {
+    padding: 15px 0 20px;
+  }
+
+  .recipes-btn {
+    padding: 20px 0 40px;
+  }
+
+  button.curated-btn img {
+    width: 55px;
+  }
+
+  .recipes-card {
+    width: 100%;
+    height: 380px;
+  }
+
+  .recipes-video {
+    width: 100%;
+    height: 100%;
+  }
+
+  .recipes-card-title {
+    left: 12px;
+    width: calc(100% - 24px);
+    font-size: 18px;
+  }
+
+  .testimonial-section {
+    min-height: 916px;
+    padding: 100px 0;
+  }
+
+  .testimonial-navigation {
+    margin-top: 0;
+  }
+
+  .testimonial-arrow,
+  .testimonial-number {
+    width: 60px;
+    height: 60px;
+  }
+
+  .testimonial-number {
+    font-size: 22px;
+  }
+}
+
+.testimonial-slider {
+  width: 100%;
+}
+
+.testimonial-slider .slick-list {
+  overflow: hidden;
+}
+
+.testimonial-slider .slick-slide {
+  box-sizing: border-box;
+}
+
+@media (max-width: 991px) {
+  .testimonial-slider .slick-slide {
+    padding: 30px 10px;
+  }
+}
+
+
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 576px) {
+
+  .container {
+    width: 100% !important;
+    max-width: 100% !important;
+  }
+
+  /* Headings */
+  .heading h1 {
+    font-size: 42px;
+    line-height: 100%;
+  }
+
+  .heading h2 {
+    font-size: 30px;
+    line-height: 105%;
+    letter-spacing: normal;
+  }
+
+  .heading h6 {
+    font-size: 15px;
+  }
+
+  .heading p {
+    font-size: 13px;
+    line-height: 150%;
+  }
+
+  /* Banner */
+  .baner-section {
+    padding: 100px 15px 140px;
+  }
+
+  .baner-section::after {
+    width: 100%;
+    height: 180px;
+    right: 0;
+    bottom: -10px;
+  }
+
+  .baner-heading h6 {
+    margin-bottom: 20px;
+  }
+
+  .baner-heading.heading p {
+    margin: 20px 0;
+  }
+
+  .baner-btn {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .baner-btn button {
+    padding: 14px 22px;
+    font-size: 15px;
+  }
+
+  .baner-btn img {
+    display: none;
+  }
+
+  .baner-box-h6 {
+    margin: 40px 0 25px;
+  }
+
+  .baner-box h6 {
+    font-size: 17px;
+  }
+
+  .baner-card {
+    width: 100%;
+    height: 190px;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 10px;
+  }
+
+  .baner-card p {
+    width: 60%;
+    font-size: 13px;
+  }
+
+  .baner-card button {
+    font-size: 14px;
+  }
+
+  .baner-card img {
+    width: 120px;
+  }
+
+  .banner-img-1 {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: 0;
+  }
+
+  /* Quality */
+  .quality-section {
+    padding: 60px 0;
+  }
+
+  .quality-section::before {
+    top: -95px;
+    background-size: cover;
+  }
+
+  .quality-img {
+    margin-top: 25px;
+    gap: 10px;
+  }
+
+  .quality-img img {
+    width: calc(100% - 17px);
+    height: auto;
+  }
+
+  .quality-divider {
+    width: 7px;
+    min-width: 7px;
+    height: 250px;
+  }
+
+  .quality-divider::before {
+    width: 7px;
+    height: 80px;
+  }
+
+  .quality-content {
+    padding-left: 0;
+    margin-top: 30px;
+  }
+
+  .quality-btn {
+    padding: 13px 25px;
+    font-size: 15px;
+  }
+
+  .quality-top-content img {
+    height: 40px;
+  }
+
+  .quality-features {
+    margin-top: 30px;
+    gap: 20px;
+  }
+
+  .quality-feature-item {
+    gap: 15px;
+  }
+
+  .quality-feature-icon {
+    padding: 12px;
+    font-size: 22px;
+    flex-shrink: 0;
+  }
+
+  .quality-feature-info h5 {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+
+  .quality-feature-info p {
+    font-size: 12px;
+  }
+
+  /* Curated */
+  section.curated-section {
+    padding-top: 55px;
+  }
+
+  .curated-heading p {
+    padding: 15px 0;
+  }
+
+  button.curated-btn img {
+    width: 40px;
+  }
+
+  .curated-slider {
+    padding-top: 20px;
+    padding-bottom: 25px;
+  }
+
+  .curater-card {
+    width: 100%;
+    height: 280px;
+    border-radius: 25px;
+  }
+
+  .curater-card-01::after {
+    top: 0;
+    left: 0px;
+  }
+
+  .curater-card-01::before {
+    top: 61px;
+    left: 75px;
+  }
+
+  .curater-card-02::after {
+    top: 0;
+    left: 0px;
+  }
+
+  .curater-card-03::after {
+    top: 17px;
+    left: 31px;
+  }
+
+  .curater-card-03::before {
+    top: 27px;
+    left: 99px;
+  }
+
+  .curated-slider .slick-slide {
+    padding: 0 5px;
+  }
+
+  .curater-card-text {
+    width: calc(100% - 24px);
+    height: 75px;
+    left: 12px;
+    bottom: 12px;
+    padding: 10px;
+  }
+
+  .curater-card-text h6 {
+    font-size: 13px;
+  }
+
+  .curater-card-text p {
+    font-size: 11px;
+  }
+
+  .curater-heart {
+    font-size: 25px;
+  }
+
+  .curater-arrow {
+    width: 32px;
+    height: 32px;
+    font-size: 22px;
+  }
+
+  .curated-controls button,
+  .curated-controls .curated-number {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  /* Philosophy */
+  .philosophy-section {
+    min-height: 550px;
+    padding: 60px 15px 0;
+  }
+
+  .philosophy-heading h2 {
+    font-size: 28px;
+  }
+
+  .philosophy-heading p {
+    font-size: 12px;
+  }
+
+  .philosophy-image {
+    width: 190px;
+    height: 280px;
+    margin-top: 25px;
+  }
+
+  .philosophy-bottom img {
+    width: 100%;
+    min-height: 80px;
+    object-fit: cover;
+  }
+
+  /* Recipes */
+  .recipes-section {
+    padding: 55px 0;
+  }
+
+  .recipes-heading {
+    margin-bottom: 20px;
+  }
+
+  .recipes-heading h2 {
+    font-size: 28px;
+    padding: 12px 0;
+  }
+
+  .recipes-btn {
+    padding: 15px 0 25px;
+  }
+
+  .recipes-row {
+    row-gap: 15px;
+  }
+
+  .recipes-card,
+  .recipes-video {
+    width: 100%;
+    height: 300px;
+  }
+
+  .recipes-card-title {
+    width: calc(100% - 30px);
+    height: auto;
+    left: 15px;
+    bottom: 20px;
+    font-size: 18px;
+    padding: 8px 12px;
+    line-height: 20px;
+    text-align: center;
+  }
+
+  .video-play-btn {
+    opacity: 1;
+    width: 45px;
+    height: 45px;
+  }
+
+  /* Testimonial */
+  .testimonial-section {
+    min-height: auto;
+    padding: 55px 0;
+    background-size: cover;
+  }
+
+  .testimonial-heading {
+    margin-bottom: 20px;
+  }
+
+  .testimonial-heading h2 {
+    font-size: 28px;
+  }
+
+  .testimonial-heading-right {
+    margin-top: 15px;
+  }
+
+  .testimonial-card {
+    min-height: auto;
+    padding: 15px;
+    gap: 12px;
+    border-radius: 15px;
+  }
+
+  .testimonial-image {
+    width: 65px;
+    height: 70px;
+  }
+
+  .testimonial-content h5 {
+    font-size: 15px;
+  }
+
+  .testimonial-content p {
+    font-size: 12px;
+    padding: 10px 0;
+  }
+
+  .testimonial-content h6 {
+    font-size: 12px;
+  }
+
+  .testimonial-navigation {
+    margin-top: 20px;
+    gap: 8px;
+  }
+
+  .testimonial-arrow,
+  .testimonial-number {
+    width: 45px;
+    height: 45px;
+    font-size: 18px;
+  }
+
+  /* Media Coverage */
+  .media-coverage-section {
+    padding: 20px 0;
+  }
+
+  .media-coverage-section .media-slide {
+    padding: 0 8px;
+  }
+
+  .media-coverage-section .media-logo img {
+    max-width: 130px;
+    height: 45px;
+  }
+
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .container {
+    width: 100% !important;
+    max-width: 960px !important;
+  }
+
+  .baner-section {
+    padding: 145px 32px 80px;
+  }
+
+  .heading h1 {
+    font-size: 64px;
+    line-height: 1;
+  }
+
+  .heading h2 {
+    font-size: 48px;
+    line-height: 1.05;
+    letter-spacing: normal;
+  }
+
+  .heading h6 {
+    font-size: 18px;
+  }
+
+  .heading p {
+    font-size: 15px;
+  }
+
+  .baner-heading h6 {
+    margin-bottom: 24px;
+  }
+
+  .baner-heading.heading p {
+    margin: 24px 0;
+  }
+
+  .baner-btn {
+    flex-wrap: wrap;
+  }
+
+  .baner-btn button {
+    padding: 15px 24px;
+    font-size: 17px;
+  }
+
+  .baner-btn img {
+    width: 42px;
+  }
+
+  .baner-box-h6 {
+    margin: 48px 0 28px;
+  }
+
+  .baner-card {
+    width: 100%;
+    max-width: 435px;
+    height: 210px;
+    padding: 22px;
+  }
+
+  .baner-card p {
+    width: 60%;
+    font-size: 14px;
+  }
+
+  .baner-card img {
+    width: 130px;
+  }
+
+  .banner-img-1 {
+    position: relative;
+    width: 100%;
+    top: 0;
+    right: 0;
+  }
+
+  .quality-section {
+    padding: 85px 0;
+  }
+
+  .quality-img {
+    gap: 24px;
+  }
+
+  .quality-img img {
+    width: calc(100% - 36px);
+    max-width: 440px;
+    min-width: 0;
+  }
+
+  .quality-divider {
+    width: 12px;
+    min-width: 12px;
+    height: 360px;
+  }
+
+  .quality-content {
+    padding-left: 0;
+    margin-top: 35px;
+  }
+
+  .quality-feature-item {
+    gap: 20px;
+  }
+
+  .quality-feature-info h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .quality-feature-info p {
+    font-size: 14px;
+  }
+
+  section.curated-section {
+    padding-top: 80px;
+  }
+
+  .curated-heading p {
+    padding: 20px 10px;
+  }
+
+  .curater-card {
+    width: 300px;
+    height: 320px;
+  }
+
+  .philosophy-section {
+    min-height: auto;
+    padding: 80px 15px 110px;
+  }
+
+  .philosophy-image {
+    width: 280px;
+    height: 400px;
+    margin-top: 30px;
+  }
+
+  .recipes-section {
+    padding: 80px 0;
+  }
+
+  .recipes-heading h2 {
+    padding: 15px 0 20px;
+  }
+
+  .recipes-heading p {
+    max-width: 720px;
+  }
+
+  .recipes-btn {
+    padding: 20px 0 32px;
+  }
+
+  .recipes-card,
+  .recipes-video {
+    height: 320px;
+  }
+
+  .recipes-card-title {
+    left: 12px;
+    width: calc(100% - 24px);
+    height: auto;
+    font-size: 16px;
+    line-height: 1.2;
+    text-align: center;
+  }
+
+  .testimonial-section {
+    min-height: auto;
+    padding: 80px 0;
+  }
+
+  .testimonial-card {
+    min-height: 220px;
+    padding: 22px;
+  }
+
+  .testimonial-image {
+    width: 100px;
+    height: 110px;
+  }
+
+  .testimonial-content h5 {
+    font-size: 20px;
+  }
+
+  .testimonial-content p {
+    font-size: 14px;
+    padding: 12px 0;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .container {
+    width: 100% !important;
+    max-width: 1140px !important;
+  }
+
+  .baner-section {
+    padding: 170px 34px 100px;
+  }
+
+  .baner-section::after {
+    content: "";
+    position: absolute;
+    right: 29px;
+    bottom: 184px;
+    width: 706px;
+    height: 340px;
+    background-image: url("/src/assets/Banner-011.png");
+    opacity: 0.3;
+    transform: rotate(-3deg);
+  }
+
+  .heading h1 {
+    font-size: 76px;
+    line-height: 1;
+  }
+
+  .heading h2 {
+    font-size: 58px;
+    line-height: 1.05;
+    letter-spacing: normal;
+  }
+
+  .heading h6 {
+    font-size: 20px;
+  }
+
+  .heading p {
+    font-size: 17px;
+  }
+
+  .baner-heading.heading p {
+    margin: 32px 0;
+  }
+
+  .baner-btn button {
+    padding: 17px 25px;
+    font-size: 18px;
+  }
+
+  .baner-btn img {
+    width: 45px;
+  }
+
+  .baner-box-h6 {
+    margin: 55px 0 32px;
+  }
+
+  .baner-card {
+    width: 100%;
+    height: 220px;
+    padding: 20px;
+  }
+
+  .baner-card p {
+    width: 60%;
+    font-size: 14px;
+  }
+
+  .baner-card img {
+    width: 120px;
+  }
+
+  .banner-img-1 {
+    width: 85%;
+    top: 0;
+    right: 0;
+  }
+
+  .quality-section {
+    padding: 110px 0;
+  }
+
+  .quality-img {
+    gap: 20px;
+  }
+
+  .quality-img img {
+    width: calc(100% - 32px);
+    max-width: 440px;
+    min-width: 0;
+  }
+
+  .quality-divider {
+    width: 12px;
+    min-width: 12px;
+    height: 380px;
+  }
+
+  .quality-content {
+    padding-left: 15px;
+  }
+
+  .quality-feature-item {
+    gap: 20px;
+  }
+
+  .quality-feature-info h5 {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .quality-feature-info p {
+    font-size: 14px;
+  }
+
+  .curated-heading p {
+    padding: 24px 12px;
+  }
+
+  .curater-card {
+    width: 290px;
+    height: 340px;
+  }
+
+  .curater-card-text {
+    width: calc(100% - 32px);
+    left: 16px;
+  }
+
+  .philosophy-section {
+    min-height: 800px;
+    padding-top: 90px;
+  }
+
+  .philosophy-image {
+    width: 340px;
+    height: 490px;
+  }
+
+  .recipes-section {
+    padding: 90px 0;
+  }
+
+  .recipes-card,
+  .recipes-video {
+    height: 360px;
+  }
+
+  .recipes-card-title {
+    left: 12px;
+    width: calc(100% - 24px);
+    font-size: 18px;
+  }
+
+  .testimonial-section {
+    min-height: auto;
+    padding: 90px 0;
+  }
+
+  .testimonial-card {
+    min-height: 250px;
+    padding: 26px;
+  }
+
+  .testimonial-image {
+    width: 115px;
+    height: 125px;
+  }
+
+  .testimonial-content h5 {
+    font-size: 21px;
+  }
+
+  .testimonial-content p {
+    font-size: 15px;
+    padding: 14px 0;
+  }
 }

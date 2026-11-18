@@ -1,11 +1,11 @@
 
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import SliderModule from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 
 import {
@@ -21,6 +21,19 @@ function TestimonialsSection() {
 
     const sliderRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
+    const [isNarrowViewport, setIsNarrowViewport] = useState(() =>
+        window.matchMedia("(max-width: 991px)").matches
+    );
+
+    useEffect(() => {
+        const mediaQuery = window.matchMedia("(max-width: 991px)");
+        const handleViewportChange = (event) => {
+            setIsNarrowViewport(event.matches);
+        };
+
+        mediaQuery.addEventListener("change", handleViewportChange);
+        return () => mediaQuery.removeEventListener("change", handleViewportChange);
+    }, []);
 
 
     const testimonials = [
@@ -68,17 +81,12 @@ function TestimonialsSection() {
         dots: false,
         infinite: true,
         speed: 600,
-        slidesToShow: 2,
+        slidesToShow: isNarrowViewport ? 1 : 2,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
         arrows: false,
-        pauseOnHover: false,
-        pauseOnFocus: false,
-
-        beforeChange: (oldIndex, newIndex) => {
-            setCurrentSlide(newIndex);
-        }
+        pauseOnHover: false
     };
 
 
@@ -178,7 +186,7 @@ function TestimonialsSection() {
                             className="testimonial-arrow"
                             onClick={() => sliderRef.current.slickPrev()}
                         >
-                           <IoIosArrowBack />
+                            <IoIosArrowBack />
                         </button>
 
                         <span className="testimonial-number">
@@ -189,7 +197,7 @@ function TestimonialsSection() {
                             className="testimonial-arrow"
                             onClick={() => sliderRef.current.slickNext()}
                         >
-                           <IoIosArrowForward />
+                            <IoIosArrowForward />
                         </button>
 
                     </div>

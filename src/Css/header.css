@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
-:root{
-  --color-white:#ffffff;
-  --color-black:#000000;
-  --color-cream:#FFF4DF;
-  --color-brown:#7C3C1A;
-  --color-heading:#AE683C;
-  --color-gray:#686868;
-  --color-primary:#F1F1F199;
-  --header-bg:#FFFFFF0D;
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-cream: #FFF4DF;
+  --color-brown: #7C3C1A;
+  --color-heading: #AE683C;
+  --color-gray: #686868;
+  --color-primary: #F1F1F199;
+  --header-bg: #FFFFFF0D;
 }
 
 
@@ -28,19 +28,23 @@ h1,
 h2 {
   font-family: "Fredoka", sans-serif;
 }
-button{
+
+button {
   border: none;
   outline: none;
   background: none;
   font-family: "Inter", sans-serif;
 }
-a{
+
+a {
   text-decoration: none;
 }
-li{
+
+li {
   list-style: none;
 }
-ul{
+
+ul {
   margin: 0;
   padding: 0;
 }
@@ -65,7 +69,7 @@ ul{
   z-index: 1000;
 
   transition: background 0.4s ease,
-              box-shadow 0.4s ease;
+    box-shadow 0.4s ease;
 }
 
 /* SCROLL HEADER */
@@ -77,13 +81,13 @@ ul{
 /* HEADER SHAPE */
 
 .gur-header-shape {
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 183px;
-    z-index: 0;
-    pointer-events: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 183px;
+  z-index: 0;
+  pointer-events: none;
 }
 
 /* NAVBAR ABOVE SHAPE */
@@ -109,28 +113,29 @@ ul{
 /* LEFT MENU */
 
 .gur-menu {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 20px;
 }
 
-.gur-header  .home-link {
-    color: #fff !important;
-    font-size: 15px;
-    font-weight: 400;
-    white-space: nowrap;
-    padding: 10px 5px !important;
-    transition: 0.3s;
-    text-decoration: underline;
+.gur-header .home-link {
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  padding: 10px 5px !important;
+  transition: 0.3s;
+  text-decoration: underline;
 }
+
 .gur-header .nav-link {
-    color: #fff !important;
-    font-size: 15px;
-    font-weight: 500;
-    white-space: nowrap;
-    padding: 10px 5px !important;
-    transition: 0.3s;
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 10px 5px !important;
+  transition: 0.3s;
 }
 
 .gur-header .nav-link:hover {
@@ -145,7 +150,7 @@ ul{
   padding: 8px 0;
   margin-top: 12px;
   min-width: 170px;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.15);
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
 }
 
 .gur-header .dropdown-item {
@@ -162,13 +167,13 @@ ul{
 /* CENTER LOGO */
 
 .gur-logo {
-    position: absolute;
-    left: 50%;
-    bottom: -92px;
-    transform: translatex(-50%);
-    width: 162px;
-    height: 162px;
-    z-index: 5;
+  position: absolute;
+  left: 50%;
+  bottom: -92px;
+  transform: translatex(-50%);
+  width: 162px;
+  height: 162px;
+  z-index: 5;
 }
 
 .gur-logo img {
@@ -185,23 +190,23 @@ ul{
 /* SEARCH BAR */
 
 .gur-search {
-    width: 388px;
-    height: 42px;
-    padding: 11px 20px 11px 20px;
-    gap: 10px;
-    background: #fff;
-    border-radius: 30px;
-    color: #964B00;
+  width: 388px;
+  height: 42px;
+  padding: 11px 20px 11px 20px;
+  gap: 10px;
+  background: #fff;
+  border-radius: 30px;
+  color: #964B00;
 }
 
 .gur-search input {
-    width: 100%;
-    min-width: 0;
-    border: none;
-    outline: none;
-    background: transparent;
-    font-size: 12px;
-    color: #964B00;
+  width: 100%;
+  min-width: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  font-size: 12px;
+  color: #964B00;
 }
 
 .gur-search input::placeholder {
@@ -211,24 +216,25 @@ ul{
 /* HEADER ICONS */
 
 .gur-action {
-    color: #fff;
-    text-decoration: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    gap: 3px;
-    transition: 0.3s;
-    width: 49px;
-    height: 49px;
+  color: #fff;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+  transition: 0.3s;
+  width: 49px;
+  height: 49px;
 }
+
 .gur-action-icon {
-    background: white;
-    border-radius: 50%;
-    padding: 7px 6px 7px 6px;
-    color: var(--color-brown);
-    width: 30px;
-    height: 30px;
+  background: white;
+  border-radius: 50%;
+  padding: 7px 6px 7px 6px;
+  color: var(--color-brown);
+  width: 30px;
+  height: 30px;
 }
 
 .gur-action span {
@@ -244,7 +250,7 @@ ul{
 /* TOGGLER */
 
 .gur-header .navbar-toggler {
-  border: 1px solid rgba(255,255,255,0.7);
+  border: 1px solid rgba(255, 255, 255, 0.7);
 }
 
 .gur-header .navbar-toggler:focus {
@@ -292,6 +298,13 @@ ul{
   .gur-logo {
     width: 65px;
     height: 65px;
+    top: 0;
+    bottom: auto;
+  }
+
+  .gur-logo img {
+    width: 100%;
+    height: 100%;
   }
 
 }
@@ -300,6 +313,11 @@ ul{
 
   .gur-header {
     min-height: 80px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .gur-header-shape {
+    display: none;
   }
 
   .gur-header .navbar {
@@ -309,6 +327,7 @@ ul{
   .gur-logo {
     width: 58px;
     height: 58px;
+    top: -10px;
   }
 
   .gur-right {
@@ -319,4 +338,72 @@ ul{
     width: 100%;
   }
 
+}
+
+@media (min-width: 768px) and (max-width: 991.98px) {
+  .gur-header .container-fluid {
+    padding-right: 24px;
+    padding-left: 24px;
+  }
+
+  .gur-header .navbar {
+    min-height: 88px;
+    padding: 10px 0;
+  }
+
+  .gur-header-shape {
+    height: 145px;
+  }
+
+  .gur-logo {
+    top: 0;
+    bottom: auto;
+    width: 68px;
+    height: 68px;
+  }
+
+  .gur-logo img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gur-header .navbar-collapse {
+    margin-top: 12px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .gur-header .container-fluid {
+    padding-right: 32px;
+    padding-left: 32px;
+  }
+
+  .gur-header .navbar {
+    min-height: 92px;
+    padding: 10px 0;
+  }
+
+  .gur-header-shape {
+    height: 155px;
+  }
+
+  .gur-logo {
+    top: 0;
+    bottom: auto;
+    width: 76px;
+    height: 76px;
+  }
+
+  .gur-logo img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .gur-header .navbar-collapse {
+    margin-top: 14px;
+  }
+
+  .gur-search {
+    max-width: 360px;
+  }
 }
