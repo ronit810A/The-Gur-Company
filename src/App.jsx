@@ -8,7 +8,7 @@ import Header from "./Component/header";
 import Footer from "./Component/footer";
 
 import Home from "./Pages/home";
-import "./app.css"
+import "./App.css"
 
 function App() {
   return (
