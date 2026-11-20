@@ -10,7 +10,7 @@ import Footer from "./Component/footer";
 import Home from "./Pages/home";
 import Powder from "./Pages/powder";
 
-import "./App.css";
+import "./app.css";
 
 function App() {
   return (
