@@ -264,7 +264,7 @@ ul {
 }
 
 .powder-review-stars {
-    color: var(--color-heading);
+    color: var(--color-star);
     font-size: 20px;
     letter-spacing: 3px;
 }

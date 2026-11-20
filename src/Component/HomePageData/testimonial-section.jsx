@@ -5,7 +5,7 @@ import SliderModule from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
-import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack, IoIosStar } from "react-icons/io";
 
 
 import {
@@ -160,7 +160,7 @@ function TestimonialsSection() {
 
                                         <div className="testimonial-stars">
                                             {[1, 2, 3, 4, 5].map(star => (
-                                                <i className="bi bi-star-fill" key={star}></i>
+                                                <IoIosStar  key={star}/>
                                             ))}
                                         </div>
 

@@ -1007,11 +1007,11 @@ button.curated-btn {
 }
 
 .testimonial-stars {
-  display: flex;
-  gap: 3px;
-  color: #ffc83d;
-  font-size: 11px;
-  margin-bottom: 7px;
+    display: flex;
+    gap: 3px;
+    color: var(--color-star);
+    font-size: 20px;
+    margin-bottom: 7px;
 }
 
 .testimonial-content h5 {
