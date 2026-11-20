@@ -1,0 +1,381 @@
+
+/* =================================
+   POWDER PAGE COMMON CSS
+================================= */
+
+.powder-page {
+    width: 100%;
+    overflow: hidden;
+}
+
+.powder-page h2 {
+    color: #7C3C1A;
+    font-size: 42px;
+    font-weight: 600;
+    line-height: 1.15;
+}
+
+.powder-page .section-subtitle {
+    margin-bottom: 12px;
+    color: #AE683C;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 3px;
+}
+
+
+/* =================================
+   1. POWDER BANNER
+================================= */
+
+.powder-banner {
+    background-color: #7C3C1A;
+    padding: 170px 0 80px;
+    position: relative;
+    overflow: hidden;
+}
+
+.powder-banner::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: -7rem;
+    width: clamp(240px, 32vw, 430px);
+    aspect-ratio: 1;
+    background: url("../assets/curated-bg-04.png") center / contain no-repeat;
+    opacity: 0.18;
+    transform: translateY(-50%);
+    pointer-events: none;
+}
+
+.powder-banner .container {
+    position: relative;
+    z-index: 1;
+}
+
+.powder-banner h1 {
+    color: #FFF4DF;
+    margin-bottom: 24px;
+    font-size: 58px;
+    font-weight: 600;
+    line-height: 1.1;
+}
+
+.powder-banner h6 {
+    margin-bottom: 16px;
+    color: #E8B887;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 3px;
+}
+
+.powder-banner p {
+    max-width: 480px;
+    margin-bottom: 28px;
+    color: #FFF4DF;
+    font-size: 17px;
+    line-height: 1.7;
+}
+
+.powder-banner-img {
+    width: 100%;
+    height: 430px;
+    object-fit: contain;
+}
+
+
+/* =================================
+   2. POWDER PRODUCTS
+================================= */
+
+.powder-products {
+    padding: 120px 0 85px;
+    background: #FFFFFF url("../assets/BG.png") center top / contain no-repeat;
+    scroll-margin-top: 104px;
+}
+
+.powder-products .product-card {
+    height: 100%;
+    background: #FFF4DF;
+    border: none;
+    border-radius: 18px;
+    overflow: hidden;
+    transition: all 0.3s ease;
+}
+
+.powder-products .product-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 25px rgba(80, 40, 15, 0.12);
+}
+
+.powder-products .product-img {
+    width: 100%;
+    height: 280px;
+    padding: 12px;
+    background-color: #F0DFC5;
+    object-fit: contain;
+}
+
+.powder-products .product-placeholder {
+    height: 280px;
+    background: #F0DFC5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #7C3C1A;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.powder-products .card-body {
+    padding: 25px 20px;
+    text-align: center;
+}
+
+.powder-products .card-title {
+    color: #7C3C1A;
+    font-size: 21px;
+    font-weight: 600;
+}
+
+.powder-products .product-price {
+    color: #AE683C;
+    font-size: 20px;
+    font-weight: 600;
+    margin: 15px 0;
+}
+
+
+/* =================================
+   3. POWDER BENEFITS
+================================= */
+
+.powder-benefits {
+    padding: 120px 0 85px;
+    background-color: #7C3C1A;
+    background-image:
+        linear-gradient(rgba(124, 60, 26, 0.86), rgba(124, 60, 26, 0.86)),
+        url("../assets/curated-bg-04.png");
+    background-position: center, right 3rem center;
+    background-repeat: no-repeat;
+    background-size: cover, min(34vw, 420px);
+}
+
+.powder-benefit-card {
+    height: 100%;
+    padding: 35px 25px;
+    text-align: center;
+    background: #FFF4DF;
+    border-radius: 18px;
+    transition: all 0.3s ease;
+}
+
+.powder-benefit-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 10px 25px rgba(80, 40, 15, 0.10);
+}
+
+.powder-benefit-icon {
+    color: #AE683C;
+    margin-bottom: 20px;
+}
+
+.powder-benefit-card h4 {
+    color: #7C3C1A;
+    font-size: 22px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.powder-benefit-card p {
+    color: #665044;
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+.powder-benefits .section-subtitle,
+.powder-benefits h2 {
+    color: #FFF4DF;
+}
+
+
+/* =================================
+   4. POWDER REVIEWS
+================================= */
+
+.powder-reviews {
+    padding: 120px 0 85px;
+    background: #FFFFFF url("../assets/BG.png") center / cover no-repeat;
+}
+
+.powder-review-card {
+    height: 100%;
+    padding: 30px;
+    background: #FFF4DF;
+    border-radius: 18px;
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.powder-review-card .card-body {
+    padding: 0;
+}
+
+.powder-review-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(80, 40, 15, 0.10);
+}
+
+.powder-review-stars {
+    color: #D99B35;
+    font-size: 20px;
+    letter-spacing: 3px;
+}
+
+.powder-review-card p {
+    color: #665044;
+    font-size: 16px;
+    line-height: 1.7;
+    margin: 20px 0;
+}
+
+.powder-review-card h6 {
+    color: #7C3C1A;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+
+/* =================================
+   COMMON BUTTON
+================================= */
+
+.powder-page .gur-btn {
+    display: inline-block;
+    padding: 13px 28px;
+    background: #7C3C1A;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.powder-page .gur-btn:hover {
+    background: #AE683C;
+    color: #FFFFFF;
+}
+
+.powder-banner .gur-btn {
+    background: #FFF4DF;
+    color: #7C3C1A;
+}
+
+.powder-banner .gur-btn:hover {
+    background: #AE683C;
+    color: #FFFFFF;
+}
+
+
+/* =================================
+   TABLET RESPONSIVE
+================================= */
+
+@media (max-width: 991px) {
+
+    .powder-banner {
+        padding: 150px 0 60px;
+    }
+
+    .powder-banner h1 {
+        font-size: 46px;
+    }
+
+    .powder-banner-img {
+        height: 350px;
+    }
+
+    .powder-page h2 {
+        font-size: 35px;
+    }
+
+}
+
+
+/* =================================
+   MOBILE RESPONSIVE
+================================= */
+
+@media (max-width: 767px) {
+
+    .powder-banner {
+        padding: 135px 0 45px;
+        text-align: center;
+    }
+
+    .powder-banner h1 {
+        font-size: 36px;
+    }
+
+    .powder-banner p {
+        font-size: 15px;
+        margin: 0 auto 20px;
+    }
+
+    .powder-banner-img {
+        height: 280px;
+        margin-top: 25px;
+    }
+
+    .powder-page h2 {
+        font-size: 30px;
+    }
+
+    .powder-products,
+    .powder-benefits,
+    .powder-reviews {
+        padding: 100px 0 55px;
+    }
+
+    .powder-products .product-placeholder,
+    .powder-products .product-img {
+        height: 230px;
+    }
+
+    .powder-benefit-card {
+        padding: 25px 20px;
+    }
+
+    .powder-review-card {
+        padding: 25px;
+    }
+
+}
+
+
+/* =================================
+   SMALL MOBILE
+================================= */
+
+@media (max-width: 480px) {
+
+    .powder-banner h1 {
+        font-size: 30px;
+    }
+
+    .powder-page h2 {
+        font-size: 26px;
+    }
+
+    .powder-banner-img {
+        height: 230px;
+    }
+
+    .powder-page .section-subtitle {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+}

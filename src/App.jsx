@@ -8,16 +8,21 @@ import Header from "./Component/header";
 import Footer from "./Component/footer";
 
 import Home from "./Pages/home";
-import "./App.css"
+import Powder from "./Pages/powder";
+
+import "./App.css";
 
 function App() {
   return (
     <BrowserRouter>
       <Header />
+
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/powder" element={<Powder />} />
       </Routes>
-      <Footer/>
+
+      <Footer />
     </BrowserRouter>
   );
 }

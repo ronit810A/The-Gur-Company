@@ -1,15 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
 
-:root{
-  --color-white:#ffffff;
-  --color-black:#000000;
-  --color-cream:#FFF4DF;
-  --color-brown:#7C3C1A;
-  --color-heading:#AE683C;
-  --color-gray:#686868;
-  --color-primary:#F1F1F199;
-  --header-bg:#FFFFFF0D;
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-cream: #FFF4DF;
+  --color-brown: #7C3C1A;
+  --color-heading: #AE683C;
+  --color-gray: #686868;
+  --color-primary: #F1F1F199;
+  --header-bg: #FFFFFF0D;
 }
 
 
@@ -19,7 +19,7 @@
   box-sizing: border-box;
 }
 
-.container{
+.container {
   width: 1440px;
   max-width: 1440px !important;
 }
@@ -33,19 +33,23 @@ h1,
 h2 {
   font-family: "Fredoka", sans-serif;
 }
-button{
+
+button {
   border: none;
   outline: none;
   background: none;
   font-family: "Inter", sans-serif;
 }
-a{
+
+a {
   text-decoration: none;
 }
-li{
+
+li {
   list-style: none;
 }
-ul{
+
+ul {
   margin: 0;
   padding: 0;
 }
@@ -55,3 +59,9 @@ ul{
 
 
 
+@media (max-width: 1537px) {
+  .container {
+    max-width: 1320px !important;
+    width: 100% !important;
+  }
+}
