@@ -4,6 +4,7 @@ import PowderProducts from "../Component/PowderPageData/PowderProducts";
 import PowderBenefits from "../Component/PowderPageData/PowderBenefits";
 import PowderReviews from "../Component/PowderPageData/PowderReviews";
 
+import "../Css/home.css"
 import "../Css/powder.css"
 
 function Powder() {

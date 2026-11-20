@@ -24,7 +24,7 @@ function PowderBenefits() {
   return (
     <section className="powder-benefits">
       <Container>
-        <div className="text-center mb-5">
+        <div className="heading text-center mb-5">
           <p className="section-subtitle">WHY CHOOSE US</p>
           <h2>Goodness In Every Spoon</h2>
         </div>

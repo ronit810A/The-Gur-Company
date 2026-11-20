@@ -20,7 +20,7 @@ function PowderReviews() {
     return (
         <section className="powder-reviews">
             <Container>
-                <div className="text-center mb-5">
+                <div className="heading text-center mb-5">
                     <p className="section-subtitle">CUSTOMER LOVE</p>
                     <h2>What Our Customers Say</h2>
                 </div>

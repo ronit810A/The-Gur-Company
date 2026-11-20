@@ -8,7 +8,7 @@ function PowderBanner() {
         <section className="powder-banner">
             <Container>
                 <Row className="align-items-center">
-                    <Col lg={6}>
+                    <Col lg={6} className="powder-banner-heading heading">
                         <h6>PURE & NATURAL</h6>
                         <h1>Natural Jaggery Powder</h1>
                         <p>

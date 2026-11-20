@@ -1,3 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Inter", sans-serif;
+    background: var(--color-white);
+}
+
+h1,
+h2 {
+    font-family: "Fredoka", sans-serif;
+}
+
+button {
+    border: none;
+    outline: none;
+    background: none;
+    font-family: "Inter", sans-serif;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+li {
+    list-style: none;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+
+
+
+
+
 
 /* =================================
    POWDER PAGE COMMON CSS
@@ -8,19 +53,28 @@
     overflow: hidden;
 }
 
-.powder-page h2 {
-    color: #7C3C1A;
-    font-size: 42px;
-    font-weight: 600;
-    line-height: 1.15;
-}
-
 .powder-page .section-subtitle {
     margin-bottom: 12px;
-    color: #AE683C;
+    color: var(--color-heading);
     font-size: 13px;
     font-weight: 600;
     letter-spacing: 3px;
+}
+
+.powder-page .heading h1,
+.powder-page .heading h2,
+.powder-page .heading h6 {
+    color: var(--color-heading);
+}
+
+.powder-banner .heading h1,
+.powder-banner .heading h6 {
+    color: var(--color-cream);
+}
+
+.powder-benefits .heading h2,
+.powder-benefits .heading .section-subtitle {
+    color: var(--color-cream);
 }
 
 
@@ -29,20 +83,21 @@
 ================================= */
 
 .powder-banner {
-    background-color: #7C3C1A;
-    padding: 170px 0 80px;
+    background-color: var(--color-brown);
+    padding: 170px 0 120px;
     position: relative;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .powder-banner::before {
     content: "";
     position: absolute;
-    top: 50%;
-    left: -7rem;
-    width: clamp(240px, 32vw, 430px);
+    top: 53%;
+    left: 2%;
+    width: 33%;
+    height: 52%;
     aspect-ratio: 1;
-    background: url("../assets/curated-bg-04.png") center / contain no-repeat;
+    background: url("/src/assets/curated-bg-04.png") center / contain no-repeat;
     opacity: 0.18;
     transform: translateY(-50%);
     pointer-events: none;
@@ -53,26 +108,10 @@
     z-index: 1;
 }
 
-.powder-banner h1 {
-    color: #FFF4DF;
-    margin-bottom: 24px;
-    font-size: 58px;
-    font-weight: 600;
-    line-height: 1.1;
-}
-
-.powder-banner h6 {
-    margin-bottom: 16px;
-    color: #E8B887;
-    font-size: 13px;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-
 .powder-banner p {
     max-width: 480px;
     margin-bottom: 28px;
-    color: #FFF4DF;
+    color: var(--color-cream);
     font-size: 17px;
     line-height: 1.7;
 }
@@ -90,13 +129,16 @@
 
 .powder-products {
     padding: 120px 0 85px;
-    background: #FFFFFF url("../assets/BG.png") center top / contain no-repeat;
+    background: url("/src/assets/BG.png");
     scroll-margin-top: 104px;
+    background-size: contain;
+    margin: -67px 0 -40px;
+    position: relative;
 }
 
 .powder-products .product-card {
     height: 100%;
-    background: #FFF4DF;
+    background-color: var(--color-cream);
     border: none;
     border-radius: 18px;
     overflow: hidden;
@@ -105,41 +147,43 @@
 
 .powder-products .product-card:hover {
     transform: translateY(-8px);
-    box-shadow: 0 12px 25px rgba(80, 40, 15, 0.12);
+    box-shadow: 0 12px 25px var(--color-primary);
 }
 
 .powder-products .product-img {
     width: 100%;
     height: 280px;
     padding: 12px;
-    background-color: #F0DFC5;
     object-fit: contain;
 }
 
 .powder-products .product-placeholder {
     height: 280px;
-    background: #F0DFC5;
+    background: var(--color-cream);
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #7C3C1A;
+    color: var(--color-brown);
     font-size: 22px;
     font-weight: 600;
 }
 
 .powder-products .card-body {
     padding: 25px 20px;
+    margin: 20px;
+    background-color: var(--color-cream);
+    border-radius: 18px;
     text-align: center;
 }
 
 .powder-products .card-title {
-    color: #7C3C1A;
+    color: var(--color-brown);
     font-size: 21px;
     font-weight: 600;
 }
 
 .powder-products .product-price {
-    color: #AE683C;
+    color: var(--color-heading);
     font-size: 20px;
     font-weight: 600;
     margin: 15px 0;
@@ -151,11 +195,8 @@
 ================================= */
 
 .powder-benefits {
-    padding: 120px 0 85px;
-    background-color: #7C3C1A;
-    background-image:
-        linear-gradient(rgba(124, 60, 26, 0.86), rgba(124, 60, 26, 0.86)),
-        url("../assets/curated-bg-04.png");
+    padding: 120px 0 140px;
+    background-color: var(--color-brown);
     background-position: center, right 3rem center;
     background-repeat: no-repeat;
     background-size: cover, min(34vw, 420px);
@@ -165,39 +206,33 @@
     height: 100%;
     padding: 35px 25px;
     text-align: center;
-    background: #FFF4DF;
+    background: var(--color-cream);
     border-radius: 18px;
     transition: all 0.3s ease;
 }
 
 .powder-benefit-card:hover {
     transform: translateY(-7px);
-    box-shadow: 0 10px 25px rgba(80, 40, 15, 0.10);
+    box-shadow: 0 10px 25px var(--color-primary);
 }
 
 .powder-benefit-icon {
-    color: #AE683C;
+    color: var(--color-heading);
     margin-bottom: 20px;
 }
 
 .powder-benefit-card h4 {
-    color: #7C3C1A;
+    color: var(--color-brown);
     font-size: 22px;
     font-weight: 600;
     margin-bottom: 15px;
 }
 
 .powder-benefit-card p {
-    color: #665044;
+    color: var(--color-gray);
     font-size: 15px;
     line-height: 1.7;
 }
-
-.powder-benefits .section-subtitle,
-.powder-benefits h2 {
-    color: #FFF4DF;
-}
-
 
 /* =================================
    4. POWDER REVIEWS
@@ -205,13 +240,15 @@
 
 .powder-reviews {
     padding: 120px 0 85px;
-    background: #FFFFFF url("../assets/BG.png") center / cover no-repeat;
+    background: url("/src/assets/BG.png");
+    background-size: cover;
+    margin-top: -87px;
 }
 
 .powder-review-card {
     height: 100%;
     padding: 30px;
-    background: #FFF4DF;
+    background: var(--color-cream);
     border-radius: 18px;
     border: none;
     transition: all 0.3s ease;
@@ -223,24 +260,24 @@
 
 .powder-review-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(80, 40, 15, 0.10);
+    box-shadow: 0 10px 25px var(--color-primary);
 }
 
 .powder-review-stars {
-    color: #D99B35;
+    color: var(--color-heading);
     font-size: 20px;
     letter-spacing: 3px;
 }
 
 .powder-review-card p {
-    color: #665044;
+    color: var(--color-gray);
     font-size: 16px;
     line-height: 1.7;
     margin: 20px 0;
 }
 
 .powder-review-card h6 {
-    color: #7C3C1A;
+    color: var(--color-brown);
     font-size: 17px;
     font-weight: 600;
 }
@@ -253,8 +290,8 @@
 .powder-page .gur-btn {
     display: inline-block;
     padding: 13px 28px;
-    background: #7C3C1A;
-    color: #FFFFFF;
+    background: var(--color-brown);
+    color: var(--color-white);
     border: none;
     border-radius: 30px;
     text-decoration: none;
@@ -264,18 +301,18 @@
 }
 
 .powder-page .gur-btn:hover {
-    background: #AE683C;
-    color: #FFFFFF;
+    background: var(--color-heading);
+    color: var(--color-white);
 }
 
 .powder-banner .gur-btn {
-    background: #FFF4DF;
-    color: #7C3C1A;
+    background: var(--color-cream);
+    color: var(--color-brown);
 }
 
 .powder-banner .gur-btn:hover {
-    background: #AE683C;
-    color: #FFFFFF;
+    background: var(--color-heading);
+    color: var(--color-white);
 }
 
 
@@ -289,18 +326,9 @@
         padding: 150px 0 60px;
     }
 
-    .powder-banner h1 {
-        font-size: 46px;
-    }
-
     .powder-banner-img {
         height: 350px;
     }
-
-    .powder-page h2 {
-        font-size: 35px;
-    }
-
 }
 
 
@@ -315,10 +343,6 @@
         text-align: center;
     }
 
-    .powder-banner h1 {
-        font-size: 36px;
-    }
-
     .powder-banner p {
         font-size: 15px;
         margin: 0 auto 20px;
@@ -327,10 +351,6 @@
     .powder-banner-img {
         height: 280px;
         margin-top: 25px;
-    }
-
-    .powder-page h2 {
-        font-size: 30px;
     }
 
     .powder-products,
@@ -360,14 +380,6 @@
 ================================= */
 
 @media (max-width: 480px) {
-
-    .powder-banner h1 {
-        font-size: 30px;
-    }
-
-    .powder-page h2 {
-        font-size: 26px;
-    }
 
     .powder-banner-img {
         height: 230px;
