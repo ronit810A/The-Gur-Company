@@ -55,6 +55,15 @@ function Header() {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
+                    <div className="gur-search gur-mobile-search d-flex align-items-center">
+                        <Search size={15} />
+                        <input
+                            type="text"
+                            placeholder="Search..."
+                            aria-label="Search"
+                        />
+                    </div>
+
                     {/* Center Logo */}
 
                     <Link to="/" className="gur-logo">
@@ -185,7 +194,7 @@ function Header() {
 
                                     {/* Search */}
 
-                                    <div className="gur-search d-flex align-items-center">
+                                    <div className="gur-search d-none d-xl-flex align-items-center">
                                         <Search size={15} />
 
                                         <input

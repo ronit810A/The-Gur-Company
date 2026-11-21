@@ -1,5 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+    --color-white: #ffffff;
+    --color-black: #000000;
+    --color-cream: #FFF4DF;
+    --color-brown: #7C3C1A;
+    --color-heading: #AE683C;
+    --color-gray: #686868;
+    --color-primary: #F1F1F199;
+    --header-bg: #FFFFFF0D;
+    --color-star: #ffc83d;
+    --heading-color: #F2F2F2;
+    --header-card-bg: #FFFFFF40;
+    --divider-color: #c47745;
+    --brown-hover: #934d28;
+    --feature-text: #04160B80;
+    --soft-gray: #f5f5f5;
+    --card-heading: #b96d3c;
+    --card-bg: #f4f4f4;
+    --card-muted: #888;
+    --dark-text: #222;
+    --slick-heading: #ae663d;
+    --slick-cream: #e7c6b1;
+    --arrow-bg: #f1f1f1;
+    --active-arrow: #b36a3e;
+    --philosophy-heading: #bd7144;
+    --muted-gray: #777;
+    --recipes-heading: #b66c40;
+    --recipes-heading-alt: #ae663e;
+    --near-black: #111;
+    --testimonial-text: #8C8C8C;
+    --testimonial-arrow: #b2693e;
+}
+
 
 
 * {
@@ -73,7 +106,7 @@ ul {
 }
 
 .powder-benefits .heading h2,
-.powder-benefits .heading .section-subtitle {
+.powder-benefits .heading h6 {
     color: var(--color-cream);
 }
 
@@ -129,11 +162,22 @@ ul {
 
 .powder-products {
     padding: 120px 0 85px;
-    background: url("/src/assets/BG.png");
-    scroll-margin-top: 104px;
-    background-size: contain;
-    margin: -67px 0 -40px;
+    background:var(--color-cream);
     position: relative;
+}
+.powder-products::before {
+    content: "";
+    position: absolute;
+    background-image: url(/src/assets/BG.png);
+    top: -890px;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+    z-index: 0;
+}
+.powder-products .heading.text-center.mb-5{
+    position: relative;
+    z-index: 1;
 }
 
 .powder-products .product-card {
@@ -239,47 +283,34 @@ ul {
 ================================= */
 
 .powder-reviews {
-    padding: 120px 0 85px;
-    background: url("/src/assets/BG.png");
-    background-size: cover;
-    margin-top: -87px;
-}
-
-.powder-review-card {
-    height: 100%;
-    padding: 30px;
+    padding: 25px 0 85px;
     background: var(--color-cream);
-    border-radius: 18px;
-    border: none;
-    transition: all 0.3s ease;
+    position: relative;
 }
 
-.powder-review-card .card-body {
-    padding: 0;
+.powder-reviews::before {
+    content: "";
+    position: absolute;
+    background-image: url(/src/assets/BG.png);
+    top: -100px;
+    right: 0;
+    bottom: 0px;
+    left: 0;
+    z-index: 0;
 }
 
-.powder-review-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px var(--color-primary);
+.powder-reviews > .container {
+    position: relative;
+    z-index: 1;
 }
 
-.powder-review-stars {
-    color: var(--color-star);
-    font-size: 20px;
-    letter-spacing: 3px;
-}
-
-.powder-review-card p {
-    color: var(--color-gray);
-    font-size: 16px;
-    line-height: 1.7;
-    margin: 20px 0;
-}
-
-.powder-review-card h6 {
-    color: var(--color-brown);
-    font-size: 17px;
-    font-weight: 600;
+.powder-reviews .testimonial-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 38px;
+    position: relative;
 }
 
 
@@ -320,6 +351,61 @@ ul {
    TABLET RESPONSIVE
 ================================= */
 
+@media (min-width: 992px) and (max-width: 1199.98px) {
+    .container {
+        width: 100% !important;
+        max-width: 1120px !important;
+    }
+
+    .powder-banner {
+        padding: 155px 50px 95px;
+    }
+
+    .powder-banner p {
+        max-width: 440px;
+        font-size: 16px;
+    }
+
+    .powder-banner-img {
+        height: 380px;
+    }
+
+    .powder-products {
+        padding: 105px 0 75px;
+        background-size: cover;
+    }
+
+    .powder-products .product-img,
+    .powder-products .product-placeholder {
+        height: 240px;
+    }
+
+    .powder-products .card-body {
+        padding: 20px 16px;
+        margin: 15px;
+    }
+
+    .powder-products .card-title {
+        font-size: 19px;
+    }
+
+    .powder-benefits {
+        padding: 100px 0 110px;
+    }
+
+    .powder-benefit-card {
+        padding: 30px 18px;
+    }
+
+    .powder-benefit-card h4 {
+        font-size: 20px;
+    }
+
+    .powder-reviews {
+        padding: 30px 0 75px;
+    }
+}
+
 @media (max-width: 991px) {
 
     .powder-banner {
@@ -328,6 +414,10 @@ ul {
 
     .powder-banner-img {
         height: 350px;
+    }
+
+    .powder-products {
+        background-size: cover;
     }
 }
 
@@ -338,6 +428,9 @@ ul {
 
 @media (max-width: 767px) {
 
+    .powder-banner::before {
+        display: none;
+    }
     .powder-banner {
         padding: 135px 0 45px;
         text-align: center;
@@ -359,6 +452,10 @@ ul {
         padding: 100px 0 55px;
     }
 
+    .powder-products {
+        background-size: cover;
+    }
+
     .powder-products .product-placeholder,
     .powder-products .product-img {
         height: 230px;
@@ -371,6 +468,14 @@ ul {
     .powder-review-card {
         padding: 25px;
     }
+    .powder-reviews::before {
+    top: -59px;
+    background-size: cover;
+}
+.powder-products::before {
+    background-size: contain;
+    top: -31px;
+}
 
 }
 
@@ -388,6 +493,10 @@ ul {
     .powder-page .section-subtitle {
         font-size: 11px;
         letter-spacing: 2px;
+    }
+
+    .powder-products {
+        background-size: cover;
     }
 
 }

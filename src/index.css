@@ -1,5 +1,38 @@
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 
+:root {
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-cream: #FFF4DF;
+  --color-brown: #7C3C1A;
+  --color-heading: #AE683C;
+  --color-gray: #686868;
+  --color-primary: #F1F1F199;
+  --header-bg: #FFFFFF0D;
+  --color-star: #ffc83d;
+  --heading-color: #F2F2F2;
+  --header-card-bg: #FFFFFF40;
+  --divider-color: #c47745;
+  --brown-hover: #934d28;
+  --feature-text: #04160B80;
+  --soft-gray: #f5f5f5;
+  --card-heading: #b96d3c;
+  --card-bg: #f4f4f4;
+  --card-muted: #888;
+  --dark-text: #222;
+  --slick-heading: #ae663d;
+  --slick-cream: #e7c6b1;
+  --arrow-bg: #f1f1f1;
+  --active-arrow: #b36a3e;
+  --philosophy-heading: #bd7144;
+  --muted-gray: #777;
+  --recipes-heading: #b66c40;
+  --recipes-heading-alt: #ae663e;
+  --near-black: #111;
+  --testimonial-text: #8C8C8C;
+  --testimonial-arrow: #b2693e;
+}
+
 * {
   margin: 0;
   padding: 0;

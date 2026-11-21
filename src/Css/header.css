@@ -10,6 +10,28 @@
   --color-gray: #686868;
   --color-primary: #F1F1F199;
   --header-bg: #FFFFFF0D;
+  --color-star: #ffc83d;
+  --heading-color: #F2F2F2;
+  --header-card-bg: #FFFFFF40;
+  --divider-color: #c47745;
+  --brown-hover: #934d28;
+  --feature-text: #04160B80;
+  --soft-gray: #f5f5f5;
+  --card-heading: #b96d3c;
+  --card-bg: #f4f4f4;
+  --card-muted: #888;
+  --dark-text: #222;
+  --slick-heading: #ae663d;
+  --slick-cream: #e7c6b1;
+  --arrow-bg: #f1f1f1;
+  --active-arrow: #b36a3e;
+  --philosophy-heading: #bd7144;
+  --muted-gray: #777;
+  --recipes-heading: #b66c40;
+  --recipes-heading-alt: #ae663e;
+  --near-black: #111;
+  --testimonial-text: #8C8C8C;
+  --testimonial-arrow: #b2693e;
 }
 
 
@@ -213,6 +235,10 @@ ul {
   color: #964B00;
 }
 
+.gur-search.gur-mobile-search {
+  display: none !important;
+}
+
 /* HEADER ICONS */
 
 .gur-action {
@@ -405,5 +431,26 @@ ul {
 
   .gur-search {
     max-width: 360px;
+  }
+}
+
+@media (max-width: 1199px) {
+  .gur-header .navbar-toggler {
+    margin-right: 12px;
+  }
+
+  .gur-search.gur-mobile-search {
+    display: flex !important;
+    flex: 0 1 360px;
+    width: 360px;
+    max-width: calc(50% - 68px);
+    height: 42px;
+    margin-left: auto;
+    padding: 8px 12px;
+    gap: 7px;
+  }
+
+  .gur-right .gur-search {
+    display: none;
   }
 }

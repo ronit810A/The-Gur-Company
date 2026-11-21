@@ -13,7 +13,7 @@ function PowderProducts() {
     <section className="powder-products" id="powder-products">
       <Container>
         <div className="heading text-center mb-5">
-          <p className="section-subtitle">OUR POWDER RANGE</p>
+          <h6>OUR POWDER RANGE</h6>
           <h2>Choose Your Favourite</h2>
         </div>
 

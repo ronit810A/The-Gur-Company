@@ -10,7 +10,7 @@ function PowderBanner() {
                 <Row className="align-items-center">
                     <Col lg={6} className="powder-banner-heading heading">
                         <h6>PURE & NATURAL</h6>
-                        <h1>Natural Jaggery Powder</h1>
+                        <h1>Jaggery Powder</h1>
                         <p>
                             Bring natural sweetness to your everyday life
                             with our traditional jaggery powder.
