@@ -35,6 +35,9 @@ import MediaCoverage02 from "../assets/media-coverage-02.png"
 import MediaCoverage03 from "../assets/media-coverage-03.png"
 import MediaCoverage04 from "../assets/media-coverage-04.png"
 import MediaCoverage05 from "../assets/media-coverage-05.png"
+import StoryJourney01 from "../assets/story-journey-01.png"
+import StoryJourney02 from "../assets/story-journey-02.png"
+import StoryJourney03 from "../assets/story-journey-03.png"
 
 
 export {
@@ -72,7 +75,11 @@ export {
     MediaCoverage02,
     MediaCoverage03,
     MediaCoverage04,
-    MediaCoverage05
+    MediaCoverage05,
+    
+    StoryJourney01,
+    StoryJourney02,
+    StoryJourney03
 
     
 };
