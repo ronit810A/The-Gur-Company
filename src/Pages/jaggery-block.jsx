@@ -8,7 +8,7 @@ import "../Css/powder.css";
 
 function JaggeryBlock() {
     return (
-        <main className="powder-page jaggery-block-page">
+        <main className="powder-page">
             <JaggeryBlockBanner />
             <JaggeryBlockProducts />
             <JaggeryBlockBenefits />

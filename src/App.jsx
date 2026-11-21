@@ -12,6 +12,7 @@ import Powder from "./Pages/powder";
 import JaggeryBlock from "./Pages/jaggery-block";
 import JaggerySyrup from "./Pages/jaggery-syrup";
 import OurStory from "./Pages/our-story";
+import Blogs from "./Pages/blogs";
 
 import "./app.css";
 
@@ -26,6 +27,7 @@ function App() {
         <Route path="/block" element={<JaggeryBlock />} />
         <Route path="/syrup" element={<JaggerySyrup />} />
         <Route path="/story" element={<OurStory />} />
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
 
       <Footer />

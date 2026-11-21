@@ -11,7 +11,7 @@ import MediaCoverageSlider from "../Component/HomePageData/media-coverage-sectio
 
 function Home() {
     return (
-        <>
+        <main className="home-page">
             <BannerSection />
             <QualitySection />
             <CuratedSection />
@@ -19,7 +19,7 @@ function Home() {
             <RecipesSection/>
             <TestimonialsSection/>
             <MediaCoverageSlider/>
-        </>
+        </main>
     );
 }
 
