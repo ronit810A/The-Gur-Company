@@ -1,6 +1,7 @@
 
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
+import { Collapse, Dropdown } from "bootstrap";
 import { GurLogo, Union } from "./images";
 
 import  { useState, useEffect } from "react";
@@ -17,6 +18,10 @@ import "../Css/header.css"
 function Header() {
 
     const [scrolled, setScrolled] = useState(false);
+    const location = useLocation();
+    const handleDropdownToggle = (event) => {
+        Dropdown.getOrCreateInstance(event.currentTarget).toggle();
+    };
 
     useEffect(() => {
 
@@ -31,6 +36,22 @@ function Header() {
         };
 
     }, []);
+
+    useEffect(() => {
+        const navbar = document.getElementById("gurNavbar");
+
+        if (!navbar) {
+            return;
+        }
+
+        navbar.querySelectorAll(".dropdown-toggle").forEach((toggle) => {
+            Dropdown.getInstance(toggle)?.hide();
+        });
+
+        if (navbar.classList.contains("show")) {
+            Collapse.getOrCreateInstance(navbar, { toggle: false }).hide();
+        }
+    }, [location.pathname]);
 
     return (
         <header className={`gur-header ${scrolled ? "scrolled" : ""}`}>
@@ -89,13 +110,14 @@ function Header() {
                                     </li>
 
                                     <li className="nav-item dropdown">
-                                        <Link
-                                            to="/collection"
+                                        <button
+                                            type="button"
                                             className="nav-link dropdown-toggle"
-                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            onClick={handleDropdownToggle}
                                         >
                                             OUR COLLECTION
-                                        </Link>
+                                        </button>
 
                                         <ul className="dropdown-menu">
                                             <li>
@@ -119,13 +141,14 @@ function Header() {
                                     </li>
 
                                     <li className="nav-item dropdown">
-                                        <Link
-                                            to="/insider"
+                                        <button
+                                            type="button"
                                             className="nav-link dropdown-toggle"
-                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            onClick={handleDropdownToggle}
                                         >
                                             OUR INSIDER
-                                        </Link>
+                                        </button>
 
                                         <ul className="dropdown-menu">
                                             <li>
@@ -143,13 +166,14 @@ function Header() {
                                     </li>
 
                                     <li className="nav-item dropdown">
-                                        <Link
-                                            to="/life"
+                                        <button
+                                            type="button"
                                             className="nav-link dropdown-toggle"
-                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            onClick={handleDropdownToggle}
                                         >
                                             OUR LIFE
-                                        </Link>
+                                        </button>
 
                                         <ul className="dropdown-menu">
                                             <li>
@@ -161,13 +185,14 @@ function Header() {
                                     </li>
 
                                     <li className="nav-item dropdown">
-                                        <Link
-                                            to="/customers"
+                                        <button
+                                            type="button"
                                             className="nav-link dropdown-toggle"
-                                            data-bs-toggle="dropdown"
+                                            aria-expanded="false"
+                                            onClick={handleDropdownToggle}
                                         >
                                             CUSTOMERS
-                                        </Link>
+                                        </button>
 
                                         <ul className="dropdown-menu">
                                             <li>

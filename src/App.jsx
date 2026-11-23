@@ -13,6 +13,9 @@ import JaggeryBlock from "./Pages/jaggery-block";
 import JaggerySyrup from "./Pages/jaggery-syrup";
 import OurStory from "./Pages/our-story";
 import Blogs from "./Pages/blogs";
+import Recipes from "./Pages/recipes";
+import Reviews from "./Pages/reviews";
+import Contact from "./Pages/contact";
 
 import "./app.css";
 
@@ -28,6 +31,9 @@ function App() {
         <Route path="/syrup" element={<JaggerySyrup />} />
         <Route path="/story" element={<OurStory />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/recipes" element={<Recipes />} />
+        <Route path="/reviews" element={<Reviews />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
 
       <Footer />

@@ -1,5 +1,5 @@
 import { Container } from "react-bootstrap";
-import { Quality01 } from "../images";
+import { BlogBaner01 } from "../images";
 
 function BlogBanner() {
   return (
@@ -15,7 +15,7 @@ function BlogBanner() {
         </div>
 
         <img
-          src={Quality01}
+          src={BlogBaner01}
           className="blog-banner-image"
           alt="The Gur Company journal"
         />

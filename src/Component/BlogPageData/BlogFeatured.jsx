@@ -1,6 +1,6 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRight } from "lucide-react";
-import { Recipes010 } from "../images";
+import { BlogFeatured01 } from "../images";
 
 const featuredPost = {
   category: "NATURAL SWEETNESS",
@@ -22,7 +22,7 @@ function BlogFeatured() {
         <Row className="align-items-stretch g-0">
           <Col lg={7}>
             <div className="blog-featured-image">
-              <img src={Recipes010} alt={featuredPost.title} />
+              <img src={BlogFeatured01} alt={featuredPost.title} />
             </div>
           </Col>
 

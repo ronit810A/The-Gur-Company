@@ -39,6 +39,9 @@ import StoryJourney01 from "../assets/story-journey-01.png"
 import StoryJourney02 from "../assets/story-journey-02.png"
 import StoryJourney03 from "../assets/story-journey-03.png"
 
+import BlogBaner01 from "../assets/blog-baner-01.png"
+import BlogFeatured01 from "../assets/blog-featured-01.png"
+
 
 export {
     GurLogo,
@@ -79,7 +82,8 @@ export {
     
     StoryJourney01,
     StoryJourney02,
-    StoryJourney03
+    StoryJourney03,
 
-    
+    BlogBaner01,
+    BlogFeatured01
 };
