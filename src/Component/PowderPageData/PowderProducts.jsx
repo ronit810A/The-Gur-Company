@@ -1,6 +1,8 @@
 
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import PowderImage from "../../assets/curated-bg-05.png";
+import WishlistButton from "../WishlistPageData/WishlistButton";
+import CartButton from "../CartPageData/CartButton";
 
 const products = [
   { id: 1, name: "Classic Jaggery Powder", price: "₹199" },
@@ -27,9 +29,8 @@ function PowderProducts() {
                   <Card.Title>{item.name}</Card.Title>
                   <h5 className="product-price">{item.price}</h5>
 
-                  <Button className="gur-btn">
-                    Add To Cart
-                  </Button>
+                  <CartButton item={{ ...item, id: `powder-${item.id}`, image: PowderImage }} />
+                  <WishlistButton item={{ ...item, id: `powder-${item.id}`, image: PowderImage }} />
                 </Card.Body>
               </Card>
             </Col>

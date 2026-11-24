@@ -234,6 +234,12 @@
   color: var(--color-white);
 }
 
+@media (max-width: 1537px) {
+  .story-banner {
+    padding-top: clamp(155px, 12vw, 190px);
+  }
+}
+
 @media (max-width: 991px) {
   .story-banner {
     min-height: auto;
@@ -287,6 +293,15 @@
 
   .story-beginning-note {
     text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  .story-beginning,
+  .story-values,
+  .story-journey {
+    padding-top: 80px;
+    padding-bottom: 80px;
   }
 }
 

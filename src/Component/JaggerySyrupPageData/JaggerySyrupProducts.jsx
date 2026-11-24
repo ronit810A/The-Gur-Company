@@ -1,5 +1,7 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import JaggerySyrupImage from "../../assets/jaggery-syrup.png";
+import WishlistButton from "../WishlistPageData/WishlistButton";
+import CartButton from "../CartPageData/CartButton";
 
 const products = [
     { id: 1, name: "Classic Jaggery Syrup", price: "₹199" },
@@ -29,9 +31,8 @@ function JaggerySyrupProducts() {
                                 <Card.Body className="text-center">
                                     <Card.Title>{item.name}</Card.Title>
                                     <h5 className="product-price">{item.price}</h5>
-                                    <Button className="gur-btn" type="button">
-                                        Add To Cart
-                                    </Button>
+                                    <CartButton item={{ ...item, id: `syrup-${item.id}`, image: JaggerySyrupImage }} />
+                                    <WishlistButton item={{ ...item, id: `syrup-${item.id}`, image: JaggerySyrupImage }} />
                                 </Card.Body>
                             </Card>
                         </Col>

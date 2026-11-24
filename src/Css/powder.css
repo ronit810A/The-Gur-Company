@@ -336,6 +336,38 @@ ul {
     color: var(--color-white);
 }
 
+.powder-page .wishlist-product-action {
+    margin-top: 14px;
+}
+
+.powder-page .wishlist-add-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 7px;
+    padding: 9px 14px;
+    border: 1px solid var(--color-brown);
+    border-radius: 24px;
+    color: var(--color-brown);
+    background: transparent;
+    font-size: 13px;
+    font-weight: 600;
+    transition: color .2s ease, background .2s ease;
+}
+
+.powder-page .wishlist-add-button:hover,
+.powder-page .wishlist-add-button.is-saved {
+    color: var(--color-white);
+    background: var(--color-brown);
+}
+
+.powder-page .wishlist-product-error {
+    display: block;
+    margin-top: 8px;
+    color: var(--color-brown);
+    font-size: 12px;
+}
+
 .powder-banner .gur-btn {
     background: var(--color-cream);
     color: var(--color-brown);
@@ -350,6 +382,12 @@ ul {
 /* =================================
    TABLET RESPONSIVE
 ================================= */
+
+@media (max-width: 1537px) {
+    .powder-banner {
+        padding-top: clamp(155px, 11vw, 170px);
+    }
+}
 
 @media (min-width: 992px) and (max-width: 1199.98px) {
     .container {
@@ -426,6 +464,18 @@ ul {
    MOBILE RESPONSIVE
 ================================= */
 
+@media (max-width: 768px) {
+    .powder-banner {
+        padding: 145px 0 55px;
+    }
+
+    .powder-products,
+    .powder-benefits,
+    .powder-reviews {
+        padding-top: 90px;
+    }
+}
+
 @media (max-width: 767px) {
 
     .powder-banner::before {
@@ -483,6 +533,17 @@ ul {
 /* =================================
    SMALL MOBILE
 ================================= */
+
+@media (max-width: 576px) {
+    .powder-products .product-img,
+    .powder-products .product-placeholder {
+        height: 210px;
+    }
+
+    .powder-products .card-title {
+        font-size: 18px;
+    }
+}
 
 @media (max-width: 480px) {
 

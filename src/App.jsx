@@ -16,6 +16,8 @@ import Blogs from "./Pages/blogs";
 import Recipes from "./Pages/recipes";
 import Reviews from "./Pages/reviews";
 import Contact from "./Pages/contact";
+import Wishlist from "./Pages/wishlist";
+import Cart from "./Pages/cart";
 
 import "./app.css";
 
@@ -34,6 +36,8 @@ function App() {
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<Contact />} />
+        <Route path="/wishlist" element={<Wishlist />} />
+        <Route path="/cart" element={<Cart />} />
       </Routes>
 
       <Footer />

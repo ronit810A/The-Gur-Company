@@ -1,5 +1,7 @@
-import { Container, Row, Col, Card, Button } from "react-bootstrap";
+import { Container, Row, Col, Card } from "react-bootstrap";
 import JaggeryBlockImage from "../../assets/Jaggery Block.png";
+import WishlistButton from "../WishlistPageData/WishlistButton";
+import CartButton from "../CartPageData/CartButton";
 
 const products = [
     {
@@ -41,9 +43,8 @@ function JaggeryBlockProducts() {
                                 <Card.Body className="text-center">
                                     <Card.Title>{item.name}</Card.Title>
                                     <h5 className="product-price">{item.price}</h5>
-                                    <Button className="gur-btn" type="button">
-                                        Add To Cart
-                                    </Button>
+                                    <CartButton item={{ ...item, id: `block-${item.id}`, image: JaggeryBlockImage }} />
+                                    <WishlistButton item={{ ...item, id: `block-${item.id}`, image: JaggeryBlockImage }} />
                                 </Card.Body>
                             </Card>
                         </Col>
