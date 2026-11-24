@@ -1,14 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import { ArrowRight } from "lucide-react";
-import { BlogFeatured01 } from "../images";
-
-const featuredPost = {
-  category: "NATURAL SWEETNESS",
-  date: "21 November 2026",
-  title: "Why Jaggery Belongs in Every Modern Kitchen",
-  excerpt:
-    "Discover how traditional jaggery brings rich flavour, comforting warmth and natural goodness to the recipes you make every day.",
-};
+import { Link } from "react-router-dom";
+import { featuredPost } from "./blogPosts";
 
 function BlogFeatured() {
   return (
@@ -22,7 +15,7 @@ function BlogFeatured() {
         <Row className="align-items-stretch g-0">
           <Col lg={7}>
             <div className="blog-featured-image">
-              <img src={BlogFeatured01} alt={featuredPost.title} />
+              <img src={featuredPost.image} alt={featuredPost.title} />
             </div>
           </Col>
 
@@ -34,9 +27,9 @@ function BlogFeatured() {
               </div>
               <h3>{featuredPost.title}</h3>
               <p>{featuredPost.excerpt}</p>
-              <button type="button" className="blog-read-link">
+              <Link to={`/blogs/${featuredPost.slug}`} className="blog-read-link">
                 Read Story <ArrowRight size={18} />
-              </button>
+              </Link>
             </article>
           </Col>
         </Row>

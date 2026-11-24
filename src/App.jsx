@@ -14,6 +14,7 @@ import JaggeryBlock from "./Pages/jaggery-block";
 import JaggerySyrup from "./Pages/jaggery-syrup";
 import OurStory from "./Pages/our-story";
 import Blogs from "./Pages/blogs";
+import BlogStory from "./Pages/blog-story";
 import Recipes from "./Pages/recipes";
 import Reviews from "./Pages/reviews";
 import Contact from "./Pages/contact";
@@ -48,7 +49,9 @@ function PageBodyClass() {
 
   useEffect(() => {
     const routePath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-    const bodyClass = pageBodyClasses[routePath] || "not-found-page";
+    const bodyClass = routePath.startsWith("/blogs/")
+      ? "blog-story-page"
+      : pageBodyClasses[routePath] || "not-found-page";
     document.body.classList.add(bodyClass);
 
     return () => document.body.classList.remove(bodyClass);
@@ -92,6 +95,7 @@ function App() {
         <Route path="/syrup" element={<JaggerySyrup />} />
         <Route path="/story" element={<OurStory />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/blogs/:slug" element={<BlogStory />} />
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<Contact />} />
