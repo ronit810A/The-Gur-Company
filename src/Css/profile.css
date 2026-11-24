@@ -109,6 +109,24 @@
   line-height: 1.6;
 }
 
+.profile-logout-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 18px;
+  padding: 9px 14px;
+  border: 1px solid var(--color-primary);
+  border-radius: 24px;
+  color: var(--color-brown);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.profile-logout-button:hover {
+  border-color: var(--color-brown);
+}
+
 .profile-section-heading {
   margin-bottom: 26px;
 }

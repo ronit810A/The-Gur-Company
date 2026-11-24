@@ -1,5 +1,6 @@
 
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { BrowserRouter, Navigate, Routes, Route, useLocation } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -19,13 +20,70 @@ import Contact from "./Pages/contact";
 import Wishlist from "./Pages/wishlist";
 import Cart from "./Pages/cart";
 import Profile from "./Pages/profile";
+import Signup from "./Pages/signup";
+import Login from "./Pages/login";
+import { endDemoSession, readDemoSession } from "./Component/AuthPageData/demoAuth";
 
 import "./app.css";
 
+const pageBodyClasses = {
+  "/": "home-page",
+  "/powder": "powder-page",
+  "/block": "jaggery-block-page",
+  "/syrup": "jaggery-syrup-page",
+  "/story": "our-story-page",
+  "/blogs": "blogs-page",
+  "/recipes": "recipes-page",
+  "/reviews": "reviews-page",
+  "/contact": "contact-page",
+  "/wishlist": "wishlist-page",
+  "/cart": "cart-page",
+  "/profile": "profile-page",
+  "/signup": "login-signup-page",
+  "/login": "login-signup-page",
+};
+
+function PageBodyClass() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    const routePath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
+    const bodyClass = pageBodyClasses[routePath] || "not-found-page";
+    document.body.classList.add(bodyClass);
+
+    return () => document.body.classList.remove(bodyClass);
+  }, [pathname]);
+
+  return null;
+}
+
 function App() {
+  const [authState, setAuthState] = useState(() => {
+    try {
+      return { user: readDemoSession(), error: "" };
+    } catch (error) {
+      return { user: null, error: error.message };
+    }
+  });
+
+  const handleAuthenticated = (user) => {
+    setAuthState({ user, error: "" });
+  };
+
+  const handleLogout = () => {
+    try {
+      endDemoSession();
+      setAuthState({ user: null, error: "" });
+    } catch (error) {
+      setAuthState({ ...authState, error: error.message });
+    }
+  };
+
   return (
     <BrowserRouter>
-      <Header />
+      <PageBodyClass />
+      <Header user={authState.user} />
+      {authState.error && <p className="app-auth-error" role="alert">{authState.error}</p>}
 
       <Routes>
         <Route path="/" element={<Home />} />
@@ -37,9 +95,46 @@ function App() {
         <Route path="/recipes" element={<Recipes />} />
         <Route path="/reviews" element={<Reviews />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/wishlist" element={<Wishlist />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/profile" element={<Profile />} />
+        <Route
+          path="/wishlist"
+          element={
+            authState.user
+              ? <Wishlist />
+              : <Navigate to="/login" replace state={{ from: "/wishlist" }} />
+          }
+        />
+        <Route
+          path="/cart"
+          element={
+            authState.user
+              ? <Cart />
+              : <Navigate to="/login" replace state={{ from: "/cart" }} />
+          }
+        />
+        <Route
+          path="/profile"
+          element={
+            authState.user
+              ? <Profile onLogout={handleLogout} />
+              : <Navigate to="/signup" replace />
+          }
+        />
+        <Route
+          path="/signup"
+          element={
+            authState.user
+              ? <Navigate to="/profile" replace />
+              : <Signup onAuthenticated={handleAuthenticated} />
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            authState.user
+              ? <Navigate to="/profile" replace />
+              : <Login onAuthenticated={handleAuthenticated} />
+          }
+        />
       </Routes>
 
       <Footer />

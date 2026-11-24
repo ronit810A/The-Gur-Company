@@ -1,6 +1,6 @@
-import { UserRound } from "lucide-react";
+import { LogOut, UserRound } from "lucide-react";
 
-function ProfileOverview({ profile }) {
+function ProfileOverview({ profile, onLogout }) {
   const initials = profile.name
     ? profile.name
         .trim()
@@ -23,6 +23,9 @@ function ProfileOverview({ profile }) {
       <div className="profile-privacy-note">
         Your profile details are saved on this device.
       </div>
+      <button className="profile-logout-button" type="button" onClick={onLogout}>
+        Log out <LogOut size={16} />
+      </button>
     </section>
   );
 }

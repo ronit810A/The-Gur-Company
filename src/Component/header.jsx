@@ -15,9 +15,10 @@ import {
 
 import "../Css/header.css"
 
-function Header() {
+function Header({ user }) {
 
     const [scrolled, setScrolled] = useState(false);
+    const [menuOpen, setMenuOpen] = useState(false);
     const location = useLocation();
     const handleDropdownToggle = (event) => {
         Dropdown.getOrCreateInstance(event.currentTarget).toggle();
@@ -35,6 +36,25 @@ function Header() {
             window.removeEventListener("scroll", handleScroll);
         };
 
+    }, []);
+
+    useEffect(() => {
+        const navbar = document.getElementById("gurNavbar");
+
+        if (!navbar) {
+            return;
+        }
+
+        const handleMenuShown = () => setMenuOpen(true);
+        const handleMenuHidden = () => setMenuOpen(false);
+
+        navbar.addEventListener("show.bs.collapse", handleMenuShown);
+        navbar.addEventListener("hide.bs.collapse", handleMenuHidden);
+
+        return () => {
+            navbar.removeEventListener("show.bs.collapse", handleMenuShown);
+            navbar.removeEventListener("hide.bs.collapse", handleMenuHidden);
+        };
     }, []);
 
     useEffect(() => {
@@ -70,19 +90,30 @@ function Header() {
                     <button
                         className="navbar-toggler"
                         type="button"
-                        data-bs-toggle="collapse"
-                        data-bs-target="#gurNavbar"
+                        aria-label={menuOpen ? "Close navigation" : "Open navigation"}
+                        aria-controls="gurNavbar"
+                        aria-expanded={menuOpen}
+                        onClick={() => {
+                            const navbar = document.getElementById("gurNavbar");
+                            if (!navbar) return;
+
+                            const collapse = Collapse.getOrCreateInstance(navbar, { toggle: false });
+                            if (menuOpen) {
+                                collapse.hide();
+                            } else {
+                                collapse.show();
+                            }
+                        }}
                     >
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div className="gur-search gur-mobile-search d-flex align-items-center">
-                        <Search size={15} />
-                        <input
-                            type="text"
-                            placeholder="Search..."
-                            aria-label="Search"
-                        />
+                    <div
+                        className="gur-search gur-mobile-search d-flex align-items-center"
+                        role="img"
+                        aria-label="Search"
+                    >
+                        <Search size={21} strokeWidth={2} />
                     </div>
 
                     {/* Center Logo */}
@@ -242,12 +273,17 @@ function Header() {
                                         <span>CART</span>
                                     </Link>
 
-                                    {/* Profile */}
-
-                                    <Link to="/profile" className="gur-action">
-                                        <UserRound size={25} className="gur-action-icon " />
-                                        <span>PROFILE</span>
-                                    </Link>
+                                    {user ? (
+                                        <Link to="/profile" className="gur-action">
+                                            <UserRound size={25} className="gur-action-icon" />
+                                            <span>PROFILE</span>
+                                        </Link>
+                                    ) : (
+                                        <Link to="/signup" className="gur-action">
+                                            <UserRound size={25} className="gur-action-icon" />
+                                            <span>SIGN UP</span>
+                                        </Link>
+                                    )}
 
                                 </div>
 

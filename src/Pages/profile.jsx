@@ -7,7 +7,7 @@ import { emptyProfile, readProfile } from "../Component/ProfilePageData/profileD
 import "../Css/home.css";
 import "../Css/profile.css";
 
-function Profile() {
+function Profile({ onLogout }) {
   const [profile, setProfile] = useState(emptyProfile);
   const [error, setError] = useState("");
   const [isLoaded, setIsLoaded] = useState(false);
@@ -51,7 +51,7 @@ function Profile() {
           <div className="container">
             <div className="profile-layout">
               <div className="profile-sidebar">
-                <ProfileOverview profile={profile} />
+                <ProfileOverview profile={profile} onLogout={onLogout} />
                 <ProfileShortcuts />
               </div>
               <ProfileDetails
