@@ -6,7 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 
-import { IoIosArrowForward,IoIosArrowBack } from "react-icons/io";
+import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
 import {
     QualityArow,
@@ -72,7 +72,8 @@ function CuratedSection() {
         dots: false,
         infinite: true,
         speed: 600,
-        slidesToShow: viewportWidth <= 768 ? 1 : 3,
+        slidesToShow:
+            viewportWidth <= 768 ? 1 : 3,
         slidesToScroll: 1,
         autoplay: true,
         autoplaySpeed: 3000,
@@ -83,12 +84,14 @@ function CuratedSection() {
             viewportWidth <= 576
                 ? "45px"
                 : viewportWidth <= 768
-                    ? "100px"
+                    ? "220px"
                     : viewportWidth <= 992
-                        ? "80px"
+                        ? "10px"
                         : viewportWidth <= 1200
-                            ? "130px"
-                            : "300px",
+                            ? "100px"
+                            : viewportWidth <= 1537
+                                ? "230px"
+                                : "300px",
         focusOnSelect: true,
 
         pauseOnHover: false,
@@ -181,7 +184,7 @@ function CuratedSection() {
                         className="curated-next"
                         onClick={() => sliderRef.current.slickNext()}
                     >
-                       <IoIosArrowForward />
+                        <IoIosArrowForward />
                     </button>
 
                 </div>
