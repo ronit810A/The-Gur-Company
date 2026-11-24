@@ -18,6 +18,7 @@ import Reviews from "./Pages/reviews";
 import Contact from "./Pages/contact";
 import Wishlist from "./Pages/wishlist";
 import Cart from "./Pages/cart";
+import Profile from "./Pages/profile";
 
 import "./app.css";
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="/wishlist" element={<Wishlist />} />
         <Route path="/cart" element={<Cart />} />
+        <Route path="/profile" element={<Profile />} />
       </Routes>
 
       <Footer />
