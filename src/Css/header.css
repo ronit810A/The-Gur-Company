@@ -207,6 +207,7 @@ ul {
 
 .gur-right {
   gap: 20px;
+  justify-content: end;
 }
 
 /* SEARCH BAR */

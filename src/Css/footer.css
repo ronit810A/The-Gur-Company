@@ -212,12 +212,7 @@ ul {
 
 
 /* Responsive */
-@media (max-width: 1537px) {
-    .main-footer {
-        padding-left: clamp(0px, 2vw, 30px);
-        padding-right: clamp(0px, 2vw, 30px);
-    }
-}
+
 
 @media (max-width: 991px) {
     .main-footer {

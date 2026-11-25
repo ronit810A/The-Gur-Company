@@ -246,7 +246,7 @@ function Header({ user }) {
 
                             <div className="col-xl-7">
 
-                                <div className="gur-right d-flex align-items-center justify-content-end">
+                                <div className="gur-right d-flex align-items-center">
 
                                     {/* Search */}
 
