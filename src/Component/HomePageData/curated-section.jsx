@@ -1,5 +1,5 @@
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import SliderModule from "react-slick";
 
 import "slick-carousel/slick/slick.css";
@@ -8,20 +8,53 @@ import "slick-carousel/slick/slick-theme.css";
 
 import { IoIosArrowForward, IoIosArrowBack } from "react-icons/io";
 
-import {
-    QualityArow,
-    Curatedbg01,
-    Curatedbg02,
-    Curatedbg03
-} from "../images";
+import { QualityArow } from "../images";
+import PowderImage from "../../assets/curated-bg-05.png";
+import JaggeryBlockImage from "../../assets/Jaggery Block.png";
+import JaggerySyrupImage from "../../assets/jaggery-syrup.png";
 
 const Slider = SliderModule.default || SliderModule;
+const categoryImages = {
+    powder: PowderImage,
+    block: JaggeryBlockImage,
+    syrup: JaggerySyrupImage,
+};
 
 function CuratedSection() {
 
     const sliderRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
     const [viewportWidth, setViewportWidth] = useState(() => window.innerWidth);
+    const [slides, setSlides] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [loadError, setLoadError] = useState("");
+
+    useEffect(() => {
+        const controller = new AbortController();
+        fetch("/api/products", { signal: controller.signal })
+            .then((response) => {
+                if (!response.ok) throw new Error("Products could not be loaded.");
+                return response.json();
+            })
+            .then((products) => {
+                if (!Array.isArray(products)) throw new Error("Product data is in an unexpected format.");
+                setSlides(products
+                    .filter((product) => product.status === "active")
+                    .map((product) => ({
+                        ...product,
+                        img: product.image || categoryImages[product.category],
+                    })));
+                setLoading(false);
+            })
+            .catch((error) => {
+                if (error.name !== "AbortError") {
+                    setLoadError(error.message);
+                    setLoading(false);
+                }
+            });
+
+        return () => controller.abort();
+    }, []);
 
     useEffect(() => {
         const handleResize = () => setViewportWidth(window.innerWidth);
@@ -29,57 +62,18 @@ function CuratedSection() {
         return () => window.removeEventListener("resize", handleResize);
     }, []);
 
-    const slides = [
-        {
-            img: Curatedbg01,
-            title: "Golden Jaggery Syrup",
-            description: "Operations & Manager",
-            className: "curater-card-01"
-        },
-        {
-            img: Curatedbg02,
-            title: "Organic Jaggery Powder",
-            description: "Lead Nutrition Specialist",
-            className: "curater-card-02"
-        },
-        {
-            img: Curatedbg03,
-            title: "Classic Jaggery Cubes",
-            description: "Head Culinary Designer",
-            className: "curater-card-03"
-        },
-        {
-            img: Curatedbg01,
-            title: "Golden Jaggery Syrup",
-            description: "Operations & Manager",
-            className: "curater-card-01"
-        },
-        {
-            img: Curatedbg02,
-            title: "Organic Jaggery Powder",
-            description: "Lead Nutrition Specialist",
-            className: "curater-card-02"
-        },
-        {
-            img: Curatedbg03,
-            title: "Classic Jaggery Cubes",
-            description: "Head Culinary Designer",
-            className: "curater-card-03"
-        }
-    ];
-
+    const slidesToShow = viewportWidth <= 768 ? 1 : Math.min(3, slides.length || 3);
     const settings = {
         dots: false,
-        infinite: true,
+        infinite: slides.length > slidesToShow,
         speed: 600,
-        slidesToShow:
-            viewportWidth <= 768 ? 1 : 3,
+        slidesToShow,
         slidesToScroll: 1,
-        autoplay: true,
+        autoplay: slides.length > slidesToShow,
         autoplaySpeed: 3000,
         arrows: false,
 
-        centerMode: true,
+        centerMode: slides.length > 1,
         centerPadding:
             viewportWidth <= 576
                 ? "45px"
@@ -116,7 +110,7 @@ function CuratedSection() {
                     </p>
 
                     <button className="curated-btn">
-                        <a href="#" className="quality-btn">
+                        <a href="/products" className="quality-btn">
                             View All Products
                         </a>
                         <img src={QualityArow} alt="" />
@@ -128,13 +122,16 @@ function CuratedSection() {
 
             <div className="curated-slider">
 
-                <Slider ref={sliderRef} {...settings}>
+                {loadError && <p className="product-grid-message" role="alert">{loadError}</p>}
+                {loading && <p className="product-grid-message">Loading products…</p>}
+                {!loading && !loadError && slides.length === 0 && <p className="product-grid-message">No products available yet.</p>}
+                {slides.length > 0 && <Slider ref={sliderRef} {...settings}>
 
-                    {slides.map((item, index) => (
+                    {slides.map((item) => (
 
-                        <div key={index} className="curater-slide">
+                        <div key={item.id} className="curater-slide">
 
-                            <div className={`curater-card ${item.className}`}>
+                            <div className="curater-card is-dynamic">
 
                                 <img
                                     src={item.img}
@@ -149,8 +146,8 @@ function CuratedSection() {
                                 <div className="curater-card-text heading">
 
                                     <div>
-                                        <h6>{item.title}</h6>
-                                        <p>{item.description}</p>
+                                        <h6>{item.name}</h6>
+                                        <p>{item.description || `Jaggery ${item.category} range`}</p>
                                     </div>
 
                                     <span className="curater-heart">
@@ -165,9 +162,9 @@ function CuratedSection() {
 
                     ))}
 
-                </Slider>
+                </Slider>}
 
-                <div className="curated-controls">
+                {slides.length > slidesToShow && <div className="curated-controls">
 
                     <button
                         className="curated-prev"
@@ -187,7 +184,7 @@ function CuratedSection() {
                         <IoIosArrowForward />
                     </button>
 
-                </div>
+                </div>}
 
             </div>
 

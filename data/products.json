@@ -1,0 +1,92 @@
+[
+  {
+    "id": "powder-1",
+    "name": "Classic Jaggery Powder",
+    "category": "powder",
+    "price": 199,
+    "stock": 24,
+    "status": "active",
+    "description": "Naturally sweet, golden jaggery powder for everyday cooking.",
+    "image": ""
+  },
+  {
+    "id": "powder-2",
+    "name": "Organic Jaggery Powder",
+    "category": "powder",
+    "price": 249,
+    "stock": 18,
+    "status": "active",
+    "description": "A rich, organic jaggery powder made for mindful kitchens.",
+    "image": ""
+  },
+  {
+    "id": "powder-3",
+    "name": "Premium Jaggery Powder",
+    "category": "powder",
+    "price": 299,
+    "stock": 8,
+    "status": "active",
+    "description": "Carefully crafted premium jaggery with a deep, caramel taste.",
+    "image": ""
+  },
+  {
+    "id": "block-1",
+    "name": "Classic Jaggery Block",
+    "category": "block",
+    "price": 199,
+    "stock": 20,
+    "status": "active",
+    "description": "Traditional jaggery blocks with a smooth, wholesome sweetness.",
+    "image": ""
+  },
+  {
+    "id": "block-2",
+    "name": "Everyday Jaggery Block",
+    "category": "block",
+    "price": 249,
+    "stock": 16,
+    "status": "active",
+    "description": "An everyday pantry essential made from quality sugarcane.",
+    "image": ""
+  },
+  {
+    "id": "block-3",
+    "name": "Premium Jaggery Block",
+    "category": "block",
+    "price": 299,
+    "stock": 9,
+    "status": "active",
+    "description": "A rich, slow-cooked jaggery block with a naturally deep flavour.",
+    "image": ""
+  },
+  {
+    "id": "syrup-1",
+    "name": "Classic Jaggery Syrup",
+    "category": "syrup",
+    "price": 199,
+    "stock": 21,
+    "status": "active",
+    "description": "Pourable jaggery syrup for drinks, desserts and breakfast.",
+    "image": ""
+  },
+  {
+    "id": "syrup-2",
+    "name": "Everyday Jaggery Syrup",
+    "category": "syrup",
+    "price": 249,
+    "stock": 14,
+    "status": "active",
+    "description": "An easy-to-use natural sweetener for your daily recipes.",
+    "image": ""
+  },
+  {
+    "id": "syrup-3",
+    "name": "Premium Jaggery Syrup",
+    "category": "syrup",
+    "price": 299,
+    "stock": 7,
+    "status": "active",
+    "description": "Premium jaggery syrup with a mellow, caramel finish.",
+    "image": ""
+  }
+]

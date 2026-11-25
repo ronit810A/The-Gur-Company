@@ -436,16 +436,28 @@ button.curated-btn {
   width: 400px;
   height: 450px;
   border-radius: 25px;
+  background: var(--color-cream);
   overflow: hidden;
   transition: transform 0.5s ease;
   transform: translateY(0);
 }
 
 .curater-img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+    display: block;
+}
+
+.curater-card.is-dynamic .curater-img {
+  padding: 22px;
+  background: var(--color-cream);
+  object-fit: contain;
+}
+
+.curater-card.is-dynamic::before,
+.curater-card.is-dynamic::after {
+  content: none;
 }
 
 /* Center Active Card */

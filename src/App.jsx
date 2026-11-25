@@ -1,6 +1,6 @@
 
 import { useEffect, useState } from "react";
-import { BrowserRouter, Navigate, Routes, Route, useLocation } from "react-router-dom";
+import { BrowserRouter, Navigate, Routes, Route, useLocation, useNavigate } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -10,6 +10,7 @@ import Footer from "./Component/footer";
 
 import Home from "./Pages/home";
 import Powder from "./Pages/powder";
+import Products from "./Pages/products";
 import JaggeryBlock from "./Pages/jaggery-block";
 import JaggerySyrup from "./Pages/jaggery-syrup";
 import OurStory from "./Pages/our-story";
@@ -23,6 +24,8 @@ import Cart from "./Pages/cart";
 import Profile from "./Pages/profile";
 import Signup from "./Pages/signup";
 import Login from "./Pages/login";
+import AdminDashboard from "./Pages/AdminDashboard";
+import AdminLogin from "./Pages/AdminLogin";
 import { endDemoSession, readDemoSession } from "./Component/AuthPageData/demoAuth";
 
 import "./app.css";
@@ -30,6 +33,7 @@ import "./app.css";
 const pageBodyClasses = {
   "/": "home-page",
   "/powder": "powder-page",
+  "/products": "powder-page",
   "/block": "jaggery-block-page",
   "/syrup": "jaggery-syrup-page",
   "/story": "our-story-page",
@@ -42,14 +46,76 @@ const pageBodyClasses = {
   "/profile": "profile-page",
   "/signup": "login-signup-page",
   "/login": "login-signup-page",
+  "/admin": "admin-page",
 };
+
+function SiteHeader({ user }) {
+  const { pathname } = useLocation();
+  return pathname.startsWith("/admin") ? null : <Header user={user} />;
+}
+
+function SiteFooter() {
+  const { pathname } = useLocation();
+  return pathname.startsWith("/admin") ? null : <Footer />;
+}
+
+function ProtectedAdminDashboard() {
+  const [session, setSession] = useState({ loading: true, authenticated: false, email: "", error: "" });
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    let active = true;
+    fetch("/api/admin/session")
+      .then(async (response) => {
+        const result = await response.json();
+        if (!response.ok) throw new Error(result.error || "Admin session could not be checked.");
+        if (active) {
+          setSession({
+            loading: false,
+            authenticated: result.authenticated,
+            email: result.email || "",
+            error: "",
+          });
+        }
+      })
+      .catch((error) => {
+        if (active) setSession({ loading: false, authenticated: false, email: "", error: error.message });
+      });
+
+    return () => {
+      active = false;
+    };
+  }, []);
+
+  if (session.loading) {
+    return <main className="admin-auth-loading" role="status">Checking super-admin session…</main>;
+  }
+
+  if (session.error) {
+    return <main className="admin-auth-loading" role="alert">{session.error}</main>;
+  }
+
+  if (!session.authenticated) {
+    return <Navigate to="/admin/login" replace state={{ from: location }} />;
+  }
+
+  return (
+    <AdminDashboard
+      userEmail={session.email}
+      onLogout={() => navigate("/admin/login", { replace: true })}
+    />
+  );
+}
 
 function PageBodyClass() {
   const { pathname } = useLocation();
 
   useEffect(() => {
     const routePath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
-    const bodyClass = routePath.startsWith("/blogs/")
+    const bodyClass = routePath.startsWith("/admin")
+      ? "admin-page"
+      : routePath.startsWith("/blogs/")
       ? "blog-story-page"
       : pageBodyClasses[routePath] || "not-found-page";
     document.body.classList.add(bodyClass);
@@ -85,12 +151,13 @@ function App() {
   return (
     <BrowserRouter>
       <PageBodyClass />
-      <Header user={authState.user} />
+      <SiteHeader user={authState.user} />
       {authState.error && <p className="app-auth-error" role="alert">{authState.error}</p>}
 
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/powder" element={<Powder />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/block" element={<JaggeryBlock />} />
         <Route path="/syrup" element={<JaggerySyrup />} />
         <Route path="/story" element={<OurStory />} />
@@ -139,9 +206,11 @@ function App() {
               : <Login onAuthenticated={handleAuthenticated} />
           }
         />
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route path="/admin" element={<ProtectedAdminDashboard />} />
       </Routes>
 
-      <Footer />
+      <SiteFooter />
     </BrowserRouter>
   );
 }
