@@ -3,13 +3,6 @@ import { ArrowLeft, Leaf, ShieldCheck } from "lucide-react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "../Css/admin.css";
 
-async function readApiResponse(response) {
-  if (!response.headers.get("content-type")?.includes("application/json")) {
-    throw new Error(`The API returned a non-JSON response (HTTP ${response.status}). Redeploy the Vercel API and try again.`);
-  }
-  return response.json();
-}
-
 function AdminLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -24,7 +17,7 @@ function AdminLogin() {
     let active = true;
     fetch("/api/admin/session")
       .then(async (response) => {
-        const result = await readApiResponse(response);
+        const result = await response.json();
         if (!response.ok) throw new Error(result.error || "Admin session could not be checked.");
         if (active && result.authenticated) navigate("/admin", { replace: true });
       })
@@ -51,7 +44,7 @@ function AdminLogin() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
       });
-      const result = await readApiResponse(response);
+      const result = await response.json();
       if (!response.ok) throw new Error(result.error || "Sign-in failed.");
       navigate(destination, { replace: true });
     } catch (loginError) {

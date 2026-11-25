@@ -72,7 +72,7 @@ function readRequestBody(request) {
   });
 }
 
-export function validateProduct(value) {
+function validateProduct(value) {
   if (!value || typeof value !== "object" || Array.isArray(value)) {
     return "A product object is required.";
   }

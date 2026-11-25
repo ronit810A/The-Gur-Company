@@ -30,13 +30,6 @@ import { endDemoSession, readDemoSession } from "./Component/AuthPageData/demoAu
 
 import "./app.css";
 
-async function readAdminApiResponse(response) {
-  if (!response.headers.get("content-type")?.includes("application/json")) {
-    throw new Error(`The admin API returned a non-JSON response (HTTP ${response.status}). Redeploy the Vercel API.`);
-  }
-  return response.json();
-}
-
 const pageBodyClasses = {
   "/": "home-page",
   "/powder": "powder-page",
@@ -75,7 +68,7 @@ function ProtectedAdminDashboard() {
     let active = true;
     fetch("/api/admin/session")
       .then(async (response) => {
-        const result = await readAdminApiResponse(response);
+        const result = await response.json();
         if (!response.ok) throw new Error(result.error || "Admin session could not be checked.");
         if (active) {
           setSession({
