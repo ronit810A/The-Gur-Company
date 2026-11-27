@@ -64,8 +64,8 @@ const Footer = () => {
             <h5>Products</h5>
             <ul>
               <li><a href="/products">All Products</a></li>
-              <li><a href="/jaggery-cubes">Jaggery Cubes</a></li>
-              <li><a href="/jaggery-syrup">Jaggery Syrup</a></li>
+              <li><a href="/block">Jaggery Block</a></li>
+              <li><a href="/syrup">Jaggery Syrup</a></li>
               <li><a href="/gift-sets">Gift Sets</a></li>
             </ul>
           </Col>

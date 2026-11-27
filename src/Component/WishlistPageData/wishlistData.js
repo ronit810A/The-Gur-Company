@@ -3,6 +3,13 @@ import JaggeryBlockImage from "../../assets/Jaggery Block.png";
 import JaggerySyrupImage from "../../assets/jaggery-syrup.png";
 
 export const WISHLIST_STORAGE_KEY = "gurcompany-wishlist";
+export const WISHLIST_UPDATED_EVENT = "gurcompany-wishlist-updated";
+
+function saveWishlistItems(items) {
+  window.localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(items));
+  window.dispatchEvent(new Event(WISHLIST_UPDATED_EVENT));
+  return items;
+}
 
 const suggestedWishlistItems = [
   {
@@ -54,8 +61,7 @@ export function readWishlistItems() {
 
 export function removeWishlistItem(itemId) {
   const updatedItems = readWishlistItems().filter((item) => item.id !== itemId);
-  window.localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(updatedItems));
-  return updatedItems;
+  return saveWishlistItems(updatedItems);
 }
 
 export function addWishlistItem(item) {
@@ -63,6 +69,5 @@ export function addWishlistItem(item) {
   const alreadySaved = items.some((savedItem) => savedItem.id === item.id);
   const updatedItems = alreadySaved ? items : [...items, item];
 
-  window.localStorage.setItem(WISHLIST_STORAGE_KEY, JSON.stringify(updatedItems));
-  return updatedItems;
+  return saveWishlistItems(updatedItems);
 }

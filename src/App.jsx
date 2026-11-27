@@ -11,6 +11,11 @@ import Footer from "./Component/footer";
 import Home from "./Pages/home";
 import Powder from "./Pages/powder";
 import Products from "./Pages/products";
+import ProductDetail from "./Pages/product-detail";
+import GiftSets from "./Pages/gift-sets";
+import FAQs from "./Pages/faqs";
+import PrivacyPolicy from "./Pages/privacy-policy";
+import Terms from "./Pages/terms";
 import JaggeryBlock from "./Pages/jaggery-block";
 import JaggerySyrup from "./Pages/jaggery-syrup";
 import OurStory from "./Pages/our-story";
@@ -34,6 +39,10 @@ const pageBodyClasses = {
   "/": "home-page",
   "/powder": "powder-page",
   "/products": "products-page",
+  "/gift-sets": "gift-sets-page",
+  "/faqs": "faqs-page",
+  "/privacy-policy": "privacy-policy-page",
+  "/terms": "terms-page",
   "/block": "jaggery-block-page",
   "/syrup": "jaggery-syrup-page",
   "/story": "our-story-page",
@@ -115,6 +124,8 @@ function PageBodyClass() {
     const routePath = pathname === "/" ? "/" : pathname.replace(/\/+$/, "");
     const bodyClass = routePath.startsWith("/admin")
       ? "admin-page"
+      : routePath.startsWith("/products/")
+      ? "product-detail-page"
       : routePath.startsWith("/blogs/")
       ? "blog-story-page"
       : pageBodyClasses[routePath] || "not-found-page";
@@ -158,6 +169,11 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/powder" element={<Powder />} />
         <Route path="/products" element={<Products />} />
+        <Route path="/products/:id" element={<ProductDetail />} />
+        <Route path="/gift-sets" element={<GiftSets />} />
+        <Route path="/faqs" element={<FAQs />} />
+        <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        <Route path="/terms" element={<Terms />} />
         <Route path="/block" element={<JaggeryBlock />} />
         <Route path="/syrup" element={<JaggerySyrup />} />
         <Route path="/story" element={<OurStory />} />

@@ -213,6 +213,7 @@ ul {
 /* SEARCH BAR */
 
 .gur-search {
+  position: relative;
   width: 388px;
   height: 42px;
   padding: 11px 20px 11px 20px;
@@ -234,6 +235,82 @@ ul {
 
 .gur-search input::placeholder {
   color: #964B00;
+}
+
+.gur-search button {
+  display: flex;
+  flex: 0 0 auto;
+  align-items: center;
+  justify-content: center;
+  color: inherit;
+}
+
+.gur-search-results {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  left: 0;
+  z-index: 20;
+  max-height: min(60vh, 360px);
+  overflow-y: auto;
+  padding: 8px;
+  border-radius: 12px;
+  background: #fff;
+  color: #4a2a19;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.gur-search-result {
+  width: 100%;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.gur-search-result:hover,
+.gur-search-result:focus-visible {
+  background: #fff4df;
+}
+
+.gur-search-result-name {
+  overflow: hidden;
+  color: #4a2a19;
+  font-size: 13px;
+  font-weight: 600;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.gur-search-result-category {
+  flex: 0 0 auto;
+  color: #8a674f;
+  font-size: 11px;
+  text-transform: capitalize;
+}
+
+.gur-search-results-message {
+  margin: 0;
+  padding: 10px 12px;
+  color: #6b4c37;
+  font-size: 12px;
+}
+
+.gur-search-results-all {
+  width: 100%;
+  justify-content: center;
+  margin-top: 4px;
+  padding: 10px 12px;
+  border-top: 1px solid #eee1d4;
+  color: #7c3c1a;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.gur-search-results-all:hover,
+.gur-search-results-all:focus-visible {
+  color: #934d28;
 }
 
 .gur-search.gur-mobile-search {
@@ -262,6 +339,39 @@ ul {
   color: var(--color-brown);
   width: 30px;
   height: 30px;
+}
+
+.gur-action-icon-wrap {
+  position: relative;
+  display: flex;
+}
+
+.gur-action-count {
+  position: absolute;
+  top: -6px;
+  right: -8px;
+  display: flex;
+  min-width: 18px;
+  height: 18px;
+  align-items: center;
+  justify-content: center;
+  padding: 0 4px;
+  border-radius: 999px;
+  background: #f5d2a2;
+  color: var(--color-brown);
+  font-size: 10px !important;
+  line-height: 1;
+}
+
+.gur-action-count-error {
+  position: absolute;
+  right: 12px;
+  top: 100%;
+  max-width: min(420px, calc(100vw - 24px));
+  padding: 6px 10px;
+  background: #fff;
+  color: #9c2f24;
+  font-size: 12px;
 }
 
 .gur-action span {
@@ -510,6 +620,25 @@ ul {
     justify-content: center;
     color: var(--color-cream);
     background: transparent;
+  }
+
+  .gur-search.gur-mobile-search button {
+    color: inherit;
+  }
+
+  .gur-search.gur-mobile-search.is-open {
+    position: absolute;
+    top: calc(100% - 10px);
+    right: 16px;
+    left: 16px;
+    z-index: 10;
+    width: auto;
+    max-width: none;
+    height: 44px;
+    padding: 8px 12px;
+    background: #fff;
+    color: #964B00;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
   }
 
   .gur-right .gur-search {

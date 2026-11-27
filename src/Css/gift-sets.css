@@ -1,0 +1,74 @@
+body.gift-sets-page .gur-header {
+  background: var(--color-brown);
+}
+
+.gift-sets-hero {
+  padding: 170px 20px 82px;
+  background: var(--color-brown);
+  color: var(--color-cream);
+  text-align: center;
+}
+
+.gift-sets-hero .container {
+  max-width: 860px !important;
+}
+
+.gift-sets-eyebrow {
+  margin-bottom: 14px;
+  color: #f5d2a2;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.gift-sets-hero h1 {
+  margin-bottom: 16px;
+  color: var(--color-cream);
+  font-size: clamp(38px, 5vw, 64px);
+}
+
+.gift-sets-hero > .container > p:not(.gift-sets-eyebrow) {
+  max-width: 620px;
+  margin: 0 auto 28px;
+  color: rgba(255, 244, 223, 0.9);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.gift-sets-cta {
+  display: inline-block;
+  padding: 12px 24px;
+  border: 1px solid var(--color-cream);
+  border-radius: 30px;
+  color: var(--color-cream);
+  font-size: 14px;
+  font-weight: 600;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.gift-sets-cta:hover {
+  background: var(--color-cream);
+  color: var(--color-brown);
+}
+
+.gift-sets-page .our-products {
+  padding-top: 85px;
+}
+
+.gift-sets-page #gift-set-options {
+  scroll-margin-top: 110px;
+}
+
+@media (max-width: 767px) {
+  .gift-sets-hero {
+    padding: 135px 18px 58px;
+  }
+
+  .gift-sets-hero > .container > p:not(.gift-sets-eyebrow) {
+    font-size: 14px;
+  }
+
+  .gift-sets-page .our-products {
+    padding-top: 64px;
+  }
+}

@@ -226,6 +226,32 @@ main.powder-page {
     font-weight: 600;
 }
 
+.product-card-image-link {
+    display: block;
+}
+
+.product-card-title-link {
+    display: inline-block;
+    color: var(--color-brown);
+}
+
+.product-card-title-link:hover {
+    color: var(--color-heading);
+}
+
+.product-card-view-link {
+    display: inline-block;
+    margin-bottom: 14px;
+    color: var(--color-brown);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: underline;
+}
+
+.product-card-view-link:hover {
+    color: var(--color-heading);
+}
+
 .powder-products .product-price {
     color: var(--color-heading);
     font-size: 20px;

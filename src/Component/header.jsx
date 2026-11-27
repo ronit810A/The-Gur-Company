@@ -1,10 +1,10 @@
 
 import React from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { Collapse, Dropdown } from "bootstrap";
 import { GurLogo, Union } from "./images";
 
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 
 import {
     Search,
@@ -13,15 +13,106 @@ import {
     UserRound
 } from "lucide-react";
 
+import { CART_STORAGE_KEY, CART_UPDATED_EVENT, readCartItems } from "./CartPageData/cartData";
+import { WISHLIST_STORAGE_KEY, WISHLIST_UPDATED_EVENT, readWishlistItems } from "./WishlistPageData/wishlistData";
+
 import "../Css/header.css"
 
 function Header({ user }) {
 
+    const location = useLocation();
+    const navigate = useNavigate();
     const [scrolled, setScrolled] = useState(false);
     const [menuOpen, setMenuOpen] = useState(false);
-    const location = useLocation();
+    const [searchQuery, setSearchQuery] = useState(
+        () => new URLSearchParams(location.search).get("search") || ""
+    );
+    const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
+    const [searchFocused, setSearchFocused] = useState(false);
+    const [searchProducts, setSearchProducts] = useState([]);
+    const [searchStatus, setSearchStatus] = useState("idle");
+    const [searchError, setSearchError] = useState("");
+    const [itemCounts, setItemCounts] = useState({ wishlist: 0, cart: 0, error: "" });
     const handleDropdownToggle = (event) => {
         Dropdown.getOrCreateInstance(event.currentTarget).toggle();
+    };
+    const loadSearchProducts = () => {
+        if (searchStatus !== "idle") return;
+
+        setSearchStatus("loading");
+        fetch("/api/products")
+            .then((response) => {
+                if (!response.ok) throw new Error("Products could not be loaded.");
+                return response.json();
+            })
+            .then((products) => {
+                if (!Array.isArray(products)) throw new Error("Product data is in an unexpected format.");
+                setSearchProducts(products);
+                setSearchStatus("loaded");
+            })
+            .catch((error) => {
+                setSearchStatus("error");
+                setSearchError(error.message);
+            });
+    };
+    const handleProductSearch = (event) => {
+        event.preventDefault();
+        const query = searchQuery.trim();
+        navigate(query ? `/products?search=${encodeURIComponent(query)}` : "/products");
+        setMobileSearchOpen(false);
+        setSearchFocused(false);
+    };
+    const openProductSearch = (product) => {
+        setSearchQuery(product.name);
+        navigate(`/products/${encodeURIComponent(String(product.id))}`);
+        setMobileSearchOpen(false);
+        setSearchFocused(false);
+    };
+    const searchMatches = searchProducts.filter((product) =>
+        [product.name, product.description, product.category]
+            .some((value) => String(value || "").toLowerCase().includes(searchQuery.trim().toLowerCase()))
+    );
+    const showSearchResults = searchFocused && searchQuery.trim();
+    const renderSearchResults = () => {
+        if (!showSearchResults) return null;
+
+        return (
+            <div className="gur-search-results" role="listbox" aria-label="Product search results">
+                {searchStatus === "loading" && (
+                    <p className="gur-search-results-message" role="status">Searching products…</p>
+                )}
+                {searchStatus === "error" && (
+                    <p className="gur-search-results-message" role="alert">
+                        Products could not be loaded: {searchError}
+                    </p>
+                )}
+                {searchStatus === "loaded" && searchMatches.length === 0 && (
+                    <p className="gur-search-results-message" role="status">No matching products found.</p>
+                )}
+                {searchStatus === "loaded" && searchMatches.slice(0, 5).map((product) => (
+                    <button
+                        className="gur-search-result"
+                        type="button"
+                        role="option"
+                        aria-selected="false"
+                        key={product.id}
+                        onClick={() => openProductSearch(product)}
+                    >
+                        <span className="gur-search-result-name">{product.name}</span>
+                        <span className="gur-search-result-category">{product.category}</span>
+                    </button>
+                ))}
+                {searchStatus === "loaded" && searchMatches.length > 0 && (
+                    <button
+                        className="gur-search-results-all"
+                        type="submit"
+                        onClick={() => setSearchFocused(false)}
+                    >
+                        View all {searchMatches.length} matching products
+                    </button>
+                )}
+            </div>
+        );
     };
 
     useEffect(() => {
@@ -36,6 +127,45 @@ function Header({ user }) {
             window.removeEventListener("scroll", handleScroll);
         };
 
+    }, []);
+
+    useEffect(() => {
+        const refreshItemCounts = () => {
+            let wishlist = 0;
+            let cart = 0;
+            const errors = [];
+
+            try {
+                wishlist = readWishlistItems().length;
+            } catch (error) {
+                errors.push(error.message);
+            }
+
+            try {
+                cart = readCartItems().reduce((total, item) => total + item.quantity, 0);
+            } catch (error) {
+                errors.push(error.message);
+            }
+
+            setItemCounts({ wishlist, cart, error: errors.join(" ") });
+        };
+
+        const handleStorageChange = (event) => {
+            if (!event.key || [CART_STORAGE_KEY, WISHLIST_STORAGE_KEY].includes(event.key)) {
+                refreshItemCounts();
+            }
+        };
+
+        refreshItemCounts();
+        window.addEventListener(CART_UPDATED_EVENT, refreshItemCounts);
+        window.addEventListener(WISHLIST_UPDATED_EVENT, refreshItemCounts);
+        window.addEventListener("storage", handleStorageChange);
+
+        return () => {
+            window.removeEventListener(CART_UPDATED_EVENT, refreshItemCounts);
+            window.removeEventListener(WISHLIST_UPDATED_EVENT, refreshItemCounts);
+            window.removeEventListener("storage", handleStorageChange);
+        };
     }, []);
 
     useEffect(() => {
@@ -108,13 +238,44 @@ function Header({ user }) {
                         <span className="navbar-toggler-icon"></span>
                     </button>
 
-                    <div
-                        className="gur-search gur-mobile-search d-flex align-items-center"
-                        role="img"
-                        aria-label="Search"
+                    <form
+                        className={`gur-search gur-mobile-search d-flex align-items-center${mobileSearchOpen ? " is-open" : ""}`}
+                        role="search"
+                        onSubmit={handleProductSearch}
+                        onFocus={() => {
+                            setSearchFocused(true);
+                            loadSearchProducts();
+                        }}
+                        onBlur={(event) => {
+                            if (!event.currentTarget.contains(event.relatedTarget)) setSearchFocused(false);
+                        }}
                     >
-                        <Search size={21} strokeWidth={2} />
-                    </div>
+                        {mobileSearchOpen ? (
+                            <>
+                                <Search size={18} strokeWidth={2} />
+                                <input
+                                    type="search"
+                                    aria-label="Search products"
+                                    placeholder="Search products"
+                                    value={searchQuery}
+                                    onChange={(event) => setSearchQuery(event.target.value)}
+                                    autoFocus
+                                />
+                                <button type="submit" aria-label="Submit product search">
+                                    <Search size={18} />
+                                </button>
+                            </>
+                        ) : (
+                            <button
+                                type="button"
+                                aria-label="Open product search"
+                                onClick={() => setMobileSearchOpen(true)}
+                            >
+                                <Search size={21} strokeWidth={2} />
+                            </button>
+                        )}
+                        {renderSearchResults()}
+                    </form>
 
                     {/* Center Logo */}
 
@@ -250,26 +411,56 @@ function Header({ user }) {
 
                                     {/* Search */}
 
-                                    <div className="gur-search d-none d-xl-flex align-items-center">
-                                        <Search size={15} />
-
+                                    <form
+                                        className="gur-search d-none d-xl-flex align-items-center"
+                                        role="search"
+                                        onSubmit={handleProductSearch}
+                                        onFocus={() => {
+                                            setSearchFocused(true);
+                                            loadSearchProducts();
+                                        }}
+                                        onBlur={(event) => {
+                                            if (!event.currentTarget.contains(event.relatedTarget)) setSearchFocused(false);
+                                        }}
+                                    >
+                                        <button type="submit" aria-label="Search products">
+                                            <Search size={17} />
+                                        </button>
                                         <input
-                                            type="text"
+                                            type="search"
+                                            aria-label="Search products"
                                             placeholder="Search by taste, use, or curiosity."
+                                            value={searchQuery}
+                                            onChange={(event) => setSearchQuery(event.target.value)}
                                         />
-                                    </div>
+                                        {renderSearchResults()}
+                                    </form>
 
                                     {/* Wishlist */}
 
                                     <Link to="/wishlist" className="gur-action">
-                                        <Heart size={25} fill="currentColor" className="gur-action-icon " />
+                                        <span className="gur-action-icon-wrap">
+                                            <Heart size={25} fill="currentColor" className="gur-action-icon" />
+                                            {itemCounts.wishlist > 0 && (
+                                                <span className="gur-action-count" aria-label={`${itemCounts.wishlist} items`}>
+                                                    {itemCounts.wishlist}
+                                                </span>
+                                            )}
+                                        </span>
                                         <span>WISHLIST</span>
                                     </Link>
 
                                     {/* Cart */}
 
                                     <Link to="/cart" className="gur-action">
-                                        <ShoppingCart size={25} className="gur-action-icon " />
+                                        <span className="gur-action-icon-wrap">
+                                            <ShoppingCart size={25} className="gur-action-icon" />
+                                            {itemCounts.cart > 0 && (
+                                                <span className="gur-action-count" aria-label={`${itemCounts.cart} items`}>
+                                                    {itemCounts.cart}
+                                                </span>
+                                            )}
+                                        </span>
                                         <span>CART</span>
                                     </Link>
 
@@ -294,6 +485,11 @@ function Header({ user }) {
 
                 </div>
             </nav>
+            {itemCounts.error && (
+                <span className="gur-action-count-error" role="alert">
+                    Unable to load saved item counts. {itemCounts.error}
+                </span>
+            )}
 
         </header>
     );

@@ -1,6 +1,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import SliderModule from "react-slick";
+import { Link } from "react-router-dom";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
@@ -20,7 +21,7 @@ const categoryImages = {
     syrup: JaggerySyrupImage,
 };
 
-function CuratedSection() {
+function CuratedSection({ heading = "Curated for Discerning Palates", description }) {
 
     const sliderRef = useRef(null);
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -103,10 +104,18 @@ function CuratedSection() {
 
                 <div className="curated-heading heading text-center">
 
-                    <h2>Curated for Discerning Palates</h2>
+                    <h2>{heading}</h2>
 
                     <p>
-                        At GreenBite, every meal is a result of teamwork. Our chefs, nutritionists, and wellness specialists collaborate to bring you food that’s not only<br></br> delicious but also deeply nourishing. We believe in combining creativity, science, and compassion — so you can enjoy food that fits  fuels<br></br> happiness.
+                        {description || (
+                            <>
+                                At GreenBite, every meal is a result of teamwork. Our chefs, nutritionists, and wellness specialists collaborate to bring you food that’s not only
+                                <br />
+                                delicious but also deeply nourishing. We believe in combining creativity, science, and compassion — so you can enjoy food that fits fuels
+                                <br />
+                                happiness.
+                            </>
+                        )}
                     </p>
 
                     <button className="curated-btn">
@@ -131,32 +140,37 @@ function CuratedSection() {
 
                         <div key={item.id} className="curater-slide">
 
-                            <div className="curater-card is-dynamic">
+                            <Link
+                                to={`/products/${encodeURIComponent(String(item.id))}`}
+                                className="curated-product-link"
+                                aria-label={`View ${item.name}`}
+                            >
+                                <div className="curater-card is-dynamic">
 
-                                <img
-                                    src={item.img}
-                                    alt={item.title}
-                                    className="curater-img"
-                                />
+                                    <img
+                                        src={item.img}
+                                        alt={item.name}
+                                        className="curater-img"
+                                    />
 
-                                <div className="curater-arrow">
-                                    ↗
-                                </div>
-
-                                <div className="curater-card-text heading">
-
-                                    <div>
-                                        <h6>{item.name}</h6>
-                                        <p>{item.description || `Jaggery ${item.category} range`}</p>
+                                    <div className="curater-arrow">
+                                        ↗
                                     </div>
 
-                                    <span className="curater-heart">
-                                        ♡
-                                    </span>
+                                    <div className="curater-card-text heading">
 
+                                        <div>
+                                            <h6>{item.name}</h6>
+                                            <p>{item.description || `Jaggery ${item.category} range`}</p>
+                                        </div>
+
+                                        <span className="curater-heart">
+                                            ♡
+                                        </span>
+
+                                    </div>
                                 </div>
-
-                            </div>
+                            </Link>
 
                         </div>
 

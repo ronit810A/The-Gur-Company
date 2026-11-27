@@ -1,4 +1,9 @@
 export const CART_STORAGE_KEY = "gurcompany-cart";
+export const CART_UPDATED_EVENT = "gurcompany-cart-updated";
+
+function notifyCartUpdated() {
+  window.dispatchEvent(new Event(CART_UPDATED_EVENT));
+}
 
 export function readCartItems() {
   const savedItems = window.localStorage.getItem(CART_STORAGE_KEY);
@@ -36,6 +41,7 @@ export function readCartItems() {
 
 function saveCartItems(items) {
   window.localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(items));
+  notifyCartUpdated();
   return items;
 }
 
