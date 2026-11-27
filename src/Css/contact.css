@@ -173,6 +173,11 @@ main.contact-page {
   background: var(--brown-hover);
 }
 
+.contact-submit:disabled {
+  cursor: wait;
+  opacity: .7;
+}
+
 .contact-form-note {
   margin: 14px 0 0;
   color: var(--color-gray);

@@ -78,7 +78,7 @@ function Terms() {
             <h2>Questions</h2>
             <p>
               If you have questions about these terms, email{" "}
-              <a href="mailto:support@thegurcompany">support@thegurcompany</a>{" "}
+              <a href="mailto:ronit810a@gmail.com">ronit810a@gmail.com</a>{" "}
               or use our <Link to="/contact">Contact Us</Link> page.
             </p>
           </section>

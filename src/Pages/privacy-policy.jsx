@@ -40,10 +40,9 @@ function PrivacyPolicy() {
           <section className="privacy-policy-section">
             <h2>Contact form</h2>
             <p>
-              Submitting the contact form opens your email application with your
-              message, name, and email address filled in. The website does not
-              send the message itself; it is sent only if you choose to send it
-              from your email application.
+              When you submit the contact form, your name, email address, and
+              message are sent to EmailJS to deliver the enquiry to our configured
+              inbox. EmailJS processes this information to provide that service.
             </p>
           </section>
 
@@ -70,7 +69,7 @@ function PrivacyPolicy() {
             </p>
             <p>
               For privacy questions, contact us at{" "}
-              <a href="mailto:support@thegurcompany">support@thegurcompany</a>.
+              <a href="mailto:ronit810a@gmail.com">ronit810a@gmail.com</a>.
             </p>
           </section>
 

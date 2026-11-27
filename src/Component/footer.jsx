@@ -92,7 +92,7 @@ const Footer = () => {
 
             <div className="contact-item">
               <span><FaEnvelope /></span>
-              <p>support@thegurcompany</p>
+              <p><a href="mailto:ronit810a@gmail.com">ronit810a@gmail.com</a></p>
             </div>
 
             <div className="contact-item">
