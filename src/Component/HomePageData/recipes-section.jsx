@@ -87,6 +87,7 @@ function RecipesSection() {
                                             onClick={handleVideoClick}
                                             onPlay={() => setIsPlaying(true)}
                                             onPause={() => setIsPlaying(false)}
+                                            autoPlay
                                         />
 
                                         <button
