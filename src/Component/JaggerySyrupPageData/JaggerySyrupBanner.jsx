@@ -1,4 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { BannerImg } from "../images";
 
 function JaggerySyrupBanner() {
@@ -13,9 +14,9 @@ function JaggerySyrupBanner() {
                             Bring the rich, natural sweetness of jaggery syrup
                             to your favourite drinks and recipes.
                         </p>
-                        <a href="#syrup-products" className="gur-btn">
+                        <Link to="/products" className="gur-btn">
                             Shop Now
-                        </a>
+                        </Link>
                     </Col>
 
                     <Col lg={6}>

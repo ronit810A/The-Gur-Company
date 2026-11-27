@@ -35,7 +35,7 @@ function CartItems({ items, onItemsChange, onError }) {
             <p>
               Explore our jaggery collection and add your favourites to your cart.
             </p>
-            <Link className="cart-button" to="/powder">
+            <Link className="cart-button" to="/products">
               Explore our collection <ShoppingBag size={17} />
             </Link>
           </div>

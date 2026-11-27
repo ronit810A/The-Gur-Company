@@ -43,7 +43,7 @@ function ProductGrid({ category, sectionId, eyebrow }) {
   }, [category]);
 
   return (
-    <section className={`powder-products ${category === "block" ? "jaggery-block-products" : ""} ${category === "syrup" ? "jaggery-syrup-products" : ""}`} id={sectionId}>
+    <section className={`powder-products ${category === "block" ? "jaggery-block-products" : ""} ${category === "syrup" ? "jaggery-syrup-products" : ""} our-products`} id={sectionId}>
       <Container>
         <div className="heading text-center mb-5">
           <h6>{eyebrow}</h6>

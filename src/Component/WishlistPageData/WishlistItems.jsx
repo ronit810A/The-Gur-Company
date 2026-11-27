@@ -24,7 +24,7 @@ function WishlistItems({ items, onItemsChange, onError }) {
               Save your favourite Gur Company products and they’ll be right
               here whenever you need them.
             </p>
-            <Link className="wishlist-button" to="/powder">
+            <Link className="wishlist-button" to="/products">
               Explore our collection <ShoppingBag size={17} />
             </Link>
           </div>

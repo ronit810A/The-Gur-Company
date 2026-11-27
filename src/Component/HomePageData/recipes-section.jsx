@@ -11,6 +11,7 @@ import {
 } from "../images";
 
 import { FaPlay, FaPause } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 function RecipesSection() {
 
@@ -57,10 +58,12 @@ function RecipesSection() {
                     </p>
 
                     <button className="curated-btn  recipes-btn">
-                        <a href="#" className="quality-btn">
+                        <Link to="/recipes" className="quality-btn">
                            Explore More Recipes
-                        </a>
-                        <img src={QualityArow} alt="" />
+                        </Link>
+                        <Link to="/recipes" aria-label="Explore More Recipes">
+                            <img src={QualityArow} alt="" />
+                        </Link>
                     </button>
 
                 </div>

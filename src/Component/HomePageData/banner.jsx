@@ -2,6 +2,7 @@
 import { BannerArow, Line, Vector, BannerCard, BannerImg, BannerImg2 } from "../images";
 
 import { MdOutlineShoppingBag } from "react-icons/md";
+import { Link } from "react-router-dom";
 
 
 function BannerSection() {
@@ -21,8 +22,12 @@ function BannerSection() {
 
                         <div className="baner-btn">
                             <button>Explore Colloection </button>
-                            <button>Shop Now </button>
-                            <img src={BannerArow} alt="" />
+                            <Link to="/products">
+                                <button>Shop Now </button>
+                            </Link>
+                            <Link to="/products" aria-label="Shop Now">
+                                <img src={BannerArow} alt="" />
+                            </Link>
                         </div>
 
                         <div className="baner-box">

@@ -3,6 +3,7 @@ import { Quality01, QualityArow } from "../images";
 
 import { FiShoppingBag, FiHeart } from "react-icons/fi";
 import { LuSalad, LuSoup } from "react-icons/lu";
+import { Link } from "react-router-dom";
 
 function QualitySection() {
 
@@ -73,10 +74,12 @@ function QualitySection() {
                                     </p>
 
                                     <button>
-                                        <a href="#" className="quality-btn">
+                                        <Link to="/products" className="quality-btn">
                                             Shop Now
-                                        </a>
-                                        <img src={QualityArow} alt="" />
+                                        </Link>
+                                        <Link to="/products" aria-label="Shop Now">
+                                            <img src={QualityArow} alt="" />
+                                        </Link>
                                     </button>
 
                                 </div>

@@ -33,7 +33,7 @@ import "./app.css";
 const pageBodyClasses = {
   "/": "home-page",
   "/powder": "powder-page",
-  "/products": "powder-page",
+  "/products": "products-page",
   "/block": "jaggery-block-page",
   "/syrup": "jaggery-syrup-page",
   "/story": "our-story-page",

@@ -6,6 +6,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
 import { IoIosArrowForward, IoIosArrowBack, IoIosStar } from "react-icons/io";
+import { Link } from "react-router-dom";
 
 
 import {
@@ -126,10 +127,12 @@ function TestimonialsSection() {
                             </p>
 
                             <button className="curated-btn  testimonial-btn">
-                                <a href="#" className="quality-btn">
+                                <Link to="/products" className="quality-btn">
                                     Shop Now
-                                </a>
-                                <img src={QualityArow} alt="" />
+                                </Link>
+                                <Link to="/products" aria-label="Shop Now">
+                                    <img src={QualityArow} alt="" />
+                                </Link>
                             </button>
 
                         </div>

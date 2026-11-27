@@ -1,5 +1,6 @@
 
 import { Container, Row, Col } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import { BannerImg } from "../images";
 
@@ -15,9 +16,9 @@ function PowderBanner() {
                             Bring natural sweetness to your everyday life
                             with our traditional jaggery powder.
                         </p>
-                        <a href="#powder-products" className="gur-btn">
+                        <Link to="/products" className="gur-btn">
                             Shop Now
-                        </a>
+                        </Link>
                     </Col>
 
                     <Col lg={6}>

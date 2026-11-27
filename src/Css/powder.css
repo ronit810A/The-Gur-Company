@@ -561,3 +561,12 @@ main.powder-page {
     }
 
 }
+
+
+
+.products-page .gur-header {
+    background: var(--color-brown);
+}
+.our-products {
+    padding: 168px 0 85px;
+}
